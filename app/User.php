@@ -2,13 +2,16 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
+
 
     /**
      * The attributes that are mass assignable.
@@ -16,9 +19,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'id',
+        'user',
+        'password',
+        'rol_id'
     ];
-
+    public $timestamps = false;
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -28,11 +34,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = ($password) ? Hash::make($password) : $this->password;
+    }
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

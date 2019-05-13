@@ -19,24 +19,25 @@ class CreateUsersTable extends Migration
             $table->string('user')->unique();
             $table->string('password');
             $table->boolean('state')->default(1);
-            $table->unsignedInteger('id_rol')->unsigned();
-            $table->foreign('id_rol')->references('id')->on('roles');
+            $table->unsignedInteger('rol_id')->unsigned();
+            $table->foreign('rol_id')->references('id')->on('roles');
+            $table->softDeletes();
             $table->rememberToken();
         });
         DB::table('users')->insert(array('id' => '1',
             'user' => 'administrador',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', //secret
-            'id_rol' => '1',
+            'rol_id' => '1',
         ));
         DB::table('users')->insert(array('id' => '2',
             'user' => 'almacenero',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', //secret
-            'id_rol' => '3',
+            'rol_id' => '3',
         ));
         DB::table('users')->insert(array('id' => '3',
             'user' => 'vendedor',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', //secret
-            'id_rol' => '2',
+            'rol_id' => '2',
         ));
 
     }
