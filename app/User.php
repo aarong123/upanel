@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Upanel;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
