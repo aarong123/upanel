@@ -25,6 +25,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
+    Route::group(['middleware' => ['auth']], function () {
+        // rutas de roles
+        Route::get('/rol', 'RolController@index');
+    });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
