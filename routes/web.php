@@ -28,6 +28,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['auth']], function () {
         // rutas de roles
         Route::get('/rol', 'RolController@index');
+
+
+
+        //rutas de productos
+        Route::get('/items', 'ItemController@index');
+
+
     });
 });
 
