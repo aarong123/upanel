@@ -28,6 +28,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['auth']], function () {
         // rutas de roles
         Route::get('/rol', 'RolController@index');
+
+        // rutas de usuarios
+        Route::get('/user', 'UserController@index');
+        Route::get('/user/create', 'UserController@create');
+        Route::post('/user/register', 'UserController@store');
+        Route::put('/user/update', 'UserController@update');
+        Route::put('/user/active', 'UserController@active');
+        Route::put('/user/deactive', 'UserController@deactive');
     });
 });
 

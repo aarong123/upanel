@@ -18,13 +18,8 @@ class Person extends Model
         'email'
     ];
 
-    public function provider()
-    {
-        return $this->hasOne(Provider::class);
-    }
-
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id');
     }
 }

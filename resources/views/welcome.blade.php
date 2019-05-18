@@ -91,7 +91,7 @@
                     <a href="https://blog.laravel.com">Ventas</a>
                     <a href="https://nova.laravel.com">Compras</a>
                     <a href="{{ url('rol') }}">Roles</a>
-                    <a href="https://forge.laravel.com">Gestion de usuarios</a>
+                    <a href="{{ url('user') }}">Gestion de usuarios</a>
                 </div>
             </div>
         </div>

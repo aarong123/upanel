@@ -22,7 +22,7 @@ class User extends Authenticatable
         'id',
         'user',
         'password',
-        'rol_id'
+        'role_id'
     ];
     public $timestamps = false;
     /**
@@ -39,6 +39,10 @@ class User extends Authenticatable
         $this->attributes['password'] = ($password) ? Hash::make($password) : $this->password;
     }
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
