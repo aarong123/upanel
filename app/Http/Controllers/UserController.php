@@ -51,12 +51,32 @@ class UserController extends Controller
         $person->telephone = $request->telephone;
         $person->email = $request->email;
         $person->save();
+
         $user =  User::findOrFail($person->user->id);
         $user->user = $request->user;
         $user->password = $request->password;
         $user->role_id = $request->role_id;
         $user->save();
 
+        return redirect()->back();
+    }
+
+    public function deactive(Person $person)
+    {
+        $person->delete();
+        return redirect()->back();
+    }
+
+    public function trashed()
+    {
+        $persons = Person::onlyTrashed()->get();
+        return view('users.trashed', compact('persons'));
+    }
+
+    public function active(Person $person)
+    {
+        dd($person);
+        $person->restore();
         return redirect()->back();
     }
 }

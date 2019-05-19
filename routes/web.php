@@ -35,8 +35,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/user/register', 'UserController@store');
         Route::get('/user/edit/{person}', 'UserController@edit');
         Route::put('/user/update/{person}', 'UserController@update');
-        Route::put('/user/active', 'UserController@active');
-        Route::put('/user/deactive', 'UserController@deactive');
+        Route::delete('/user/trashed/activex/{person}', 'UserController@active');
+        Route::delete('/user/deactive/{person}', 'UserController@deactive');
+        Route::get('/user/trashed', 'UserController@trashed');
     });
 });
 

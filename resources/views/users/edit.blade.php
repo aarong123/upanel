@@ -12,7 +12,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="lastname">Apellido</label>
-                <input type="text" class="form-control" id="Apellido" placeholder="Apellido" name="lastname" value="{{ $person->lastname }}">
+                <input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" value="{{ $person->lastname }}">
             </div>
         </div>
         <div class="form-group">

@@ -22,6 +22,7 @@ class CreatepersonsTable extends Migration
             $table->string('address', 70)->nullable();
             $table->string('telephone', 70)->nullable();
             $table->string('email', 50)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
         DB::table('persons')->insert(array(
