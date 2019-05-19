@@ -35,9 +35,19 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/user/register', 'UserController@store');
         Route::get('/user/edit/{person}', 'UserController@edit');
         Route::put('/user/update/{person}', 'UserController@update');
-        Route::delete('/user/trashed/activex/{person}', 'UserController@active');
+        Route::delete('/user/trashed/active/{person}', 'UserController@active');
         Route::delete('/user/deactive/{person}', 'UserController@deactive');
         Route::get('/user/trashed', 'UserController@trashed');
+
+        // rutas de usuarios
+        Route::get('/category', 'CategoryController@index');
+        Route::get('/category/create', 'CategoryController@create');
+        Route::post('/category/register', 'CategoryController@store');
+        Route::get('/category/edit/{category}', 'CategoryController@edit');
+        Route::put('/category/update/{category}', 'CategoryController@update');
+        Route::delete('category/trashed/active/{category}', 'CategoryController@active');
+        Route::delete('/category/deactive/{category}', 'CategoryController@deactive');
+        Route::get('/category/trashed', 'CategoryController@trashed');
     });
 });
 
