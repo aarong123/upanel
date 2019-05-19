@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <a href="{{ url('user/create') }}" class="btn btn-primary stretched-link">Crear usuario</a>
+    <a href="{{ url('user/create') }}" class="btn btn-primary">Crear usuario</a>
 
     <table class="table table-hover table-dark mt-5">
         <thead>
@@ -38,7 +38,7 @@
                             Action
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="{{ url('/user/edit/' . $person->id) }}">Editar</a>
                             <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>
                             <div class="dropdown-divider"></div>

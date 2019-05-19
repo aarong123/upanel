@@ -2,25 +2,26 @@
 
 @section('content')
 
-    <form method="post" action="{{ url('user/register') }}">
+    <form method="post" action="{{ url('user/update/' . $person->id) }}">
         @csrf
+        @method('PUT')
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" placeholder="Nombre" name="name">
+                <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" value="{{ $person->name }}">
             </div>
             <div class="form-group col-md-6">
                 <label for="lastname">Apellido</label>
-                <input type="text" class="form-control" id="Apellido" placeholder="Apellido" name="lastname">
+                <input type="text" class="form-control" id="Apellido" placeholder="Apellido" name="lastname" value="{{ $person->lastname }}">
             </div>
         </div>
         <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address">
+            <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="address" value="{{ $person->address }}">
         </div>
         <div class="form-group">
             <label for="telephone"># telefono</label>
-            <input type="number" class="form-control" id="telephone" placeholder="telefono" name="telephone">
+            <input type="number" class="form-control" id="telephone" placeholder="telefono" name="telephone" value="{{ $person->telephone }}">
         </div>
         <div class="form-group col-md-4">
             <label for="type_doc">Tipo de documento</label>
@@ -32,17 +33,17 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="num_doc"># de documento</label>
-                <input type="number" class="form-control" id="num_doc" name="num_doc">
+                <input type="number" class="form-control" id="num_doc" name="num_doc" value="{{ $person->num_doc }}">
             </div>
 
             <div class="form-group col-md-3">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="email" class="form-control" id="email" name="email" value="{{ $person->email }}">
             </div>
 
             <div class="form-group col-md-3">
                 <label for="user">Usuario</label>
-                <input type="text" class="form-control" id="user" name="user">
+                <input type="text" class="form-control" id="user" name="user" value="{{ $person->user->user }}">
             </div>
 
             <div class="form-group col-md-3">

@@ -4,6 +4,7 @@ namespace Upanel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Upanel\Person;
+use Upanel\Role;
 use Upanel\User;
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        $roles = Role::all();
+        return view('users.create', compact('roles'));
     }
 
     public function store(Request $request)
@@ -26,8 +28,34 @@ class UserController extends Controller
         User::create([
             'id' => $person->id,
             'user' => $request->user,
-            'password' => $request->password
+            'role_id' => $request->role_id,
+            'password' => $request->password,
         ]);
+
+        return redirect()->back();
+    }
+
+    public function edit(Person $person)
+    {
+        $roles = Role::all();
+        return view('users.edit', compact('person', 'roles'));
+    }
+
+    public function update(Request $request, Person $person)
+    {
+        $person->name = $request->name;
+        $person->lastname = $request->lastname;
+        $person->type_doc = $request->type_doc;
+        $person->num_doc = $request->num_doc;
+        $person->address = $request->address;
+        $person->telephone = $request->telephone;
+        $person->email = $request->email;
+        $person->save();
+        $user =  User::findOrFail($person->user->id);
+        $user->user = $request->user;
+        $user->password = $request->password;
+        $user->role_id = $request->role_id;
+        $user->save();
 
         return redirect()->back();
     }

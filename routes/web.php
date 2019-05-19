@@ -33,7 +33,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/user', 'UserController@index');
         Route::get('/user/create', 'UserController@create');
         Route::post('/user/register', 'UserController@store');
-        Route::put('/user/update', 'UserController@update');
+        Route::get('/user/edit/{person}', 'UserController@edit');
+        Route::put('/user/update/{person}', 'UserController@update');
         Route::put('/user/active', 'UserController@active');
         Route::put('/user/deactive', 'UserController@deactive');
     });
