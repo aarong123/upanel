@@ -39,7 +39,7 @@
                             Action
                         </button>
                         <div class="dropdown-menu">
-                            <form method="post" action="{{ url('user/trashed/active/3') }}">
+                            <form method="post" action="{{ url('user/trashed/active/' . $person->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="dropdown-item">Activar

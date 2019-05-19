@@ -42,7 +42,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ url('/user/edit/' . $person->id) }}">Editar</a>
                             <div class="dropdown-divider"></div>
-                            <form method="post" action="{{ url('user/active/' . $person->id) }}">
+                            <form method="post" action="{{ url('user/deactive/' . $person->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="dropdown-item">Desactivar
