@@ -11,7 +11,7 @@
                    <div class="form" id="form">
                         <form method="POST" action="{{ route('login') }}">
                         @csrf
-
+                        --{{Desde aquí}}
                         <div class="form-group row">
                             <label for="user" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
