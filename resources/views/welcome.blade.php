@@ -87,7 +87,7 @@
                 <div class="links">
                     <a href="https://laravel.com/docs">Dashboard</a>
                     <a href="{{ url('category') }}">Categorias</a>
-                    <a href="https://laravel-news.com">Productos</a>
+                    <a href="{{ url('item') }}">Productos</a>
                     <a href="https://blog.laravel.com">Ventas</a>
                     <a href="https://nova.laravel.com">Compras</a>
                     <a href="{{ url('rol') }}">Roles</a>
