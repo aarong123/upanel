@@ -48,6 +48,16 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('category/trashed/active/{category}', 'CategoryController@active');
         Route::delete('/category/deactive/{category}', 'CategoryController@deactive');
         Route::get('/category/trashed', 'CategoryController@trashed');
+
+        // rutas de productos
+        Route::get('/item', 'ItemController@index');
+        Route::get('/item/create', 'ItemController@create');
+        Route::post('/item/register', 'ItemController@store');
+        Route::get('/item/edit/{item}', 'ItemController@edit');
+        Route::put('/item/update/{item}', 'ItemController@update');
+        Route::delete('item/trashed/active/{item}', 'ItemController@active');
+        Route::delete('/item/deactive/{item}', 'ItemController@deactive');
+        Route::get('/item/trashed', 'CategoryController@trashed');
     });
 });
 
