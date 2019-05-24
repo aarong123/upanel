@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/user/deactive/{person}', 'UserController@deactive');
         Route::get('/user/trashed', 'UserController@trashed');
 
-        // rutas de usuarios
+        // rutas de categorias
         Route::get('/category', 'CategoryController@index');
         Route::get('/category/create', 'CategoryController@create');
         Route::post('/category/register', 'CategoryController@store');

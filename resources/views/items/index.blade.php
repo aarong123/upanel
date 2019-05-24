@@ -2,8 +2,10 @@
 
 @section('content')
 
+    <a href="{{ url('item/create') }}" class="btn btn-primary">Crear producto</a>
+
     <div class="container">
-        <table class="table table-hover table-dark">
+        <table class="table table-hover table-dark mt-5">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -17,6 +19,7 @@
                 <th scope="col">Umbral de ventas</th>
                 <th scope="col">Umbral de stock</th>
                 <th scope="col">Umbral de expiración</th>
+                <th scope="col">Opciones</th>
             </tr>
             </thead>
             <tbody>
@@ -33,6 +36,25 @@
                     <td>{{ $item->sales_threshold }}</td>
                     <td>{{ $item->stock_threshold }}</td>
                     <td>{{ $item->expiration_threshold }}</td>
+                    <td>
+                        <!-- Example single danger button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                Action
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ url('/item/edit/' . $item->id) }}">Editar</a>
+                                <div class="dropdown-divider"></div>
+                                <form method="post" action="{{ url('/item/deactive/' . $item->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="dropdown-item">Desactivar
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
