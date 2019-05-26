@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('id', 'desc')->paginate();
+        $categories = Category::withTrashed()->get();
         return view('categories.index', compact('categories'));
     }
 
@@ -22,40 +22,37 @@ class CategoryController extends Controller
     {
         $category = Category::create($request->all());
 
-        return redirect()->back()->with('success',"La categoría $category->name se ha creado con exito");
+        return redirect()->back()->with('success', "La categoría $category->name se ha creado con exito");
     }
 
-    public function edit(Category $category)
+    public function edit($category)
     {
+        $category = Category::withTrashed()->whereId($category)->first();
         return view('categories.edit', compact('category'));
     }
 
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $category)
     {
+        $category = Category::withTrashed()->whereId($category)->first();
+
         $category->name = $request->name;
         $category->description = $request->description;
 
         $category->save();
 
-        return redirect()->back()->with('success',"La categoría $category->name se ha actualizado con exito");
+        return redirect()->back()->with('success', "La categoría $category->name se ha actualizado con exito");
     }
 
     public function deactive(Category $category)
     {
         $category->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', "La categoría $category->name se ha desactivado con exito");
     }
 
-    public function trashed()
+    public function active($category)
     {
-        $categories = Category::onlyTrashed()->get();
-        return view('categories.trashed', compact('categories'));
-    }
-
-    public function active(Category $category)
-    {
-        dd($category);
+        $category = Category::withTrashed()->whereId($category)->first();
         $category->restore();
-        return redirect()->back();
+        return redirect()->back()->with('success', "La categoría $category->name se ha activado con exito");
     }
 }

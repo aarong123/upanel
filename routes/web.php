@@ -45,9 +45,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/category/register', 'CategoryController@store');
         Route::get('/category/edit/{category}', 'CategoryController@edit');
         Route::put('/category/update/{category}', 'CategoryController@update');
-        Route::delete('category/trashed/active/{category}', 'CategoryController@active');
         Route::delete('/category/deactive/{category}', 'CategoryController@deactive');
-        Route::get('/category/trashed', 'CategoryController@trashed');
+        Route::delete('/category/active/{category}', 'CategoryController@active');
 
         // rutas de productos
         Route::get('/item', 'ItemController@index');
