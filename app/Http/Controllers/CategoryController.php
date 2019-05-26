@@ -20,9 +20,9 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        Category::create($request->all());
+        $category = Category::create($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('success',"La categoría $category->name se ha creado con exito");
     }
 
     public function edit(Category $category)
@@ -37,7 +37,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success',"La categoría $category->name se ha actualizado con exito");
     }
 
     public function deactive(Category $category)

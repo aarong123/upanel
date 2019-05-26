@@ -2,8 +2,18 @@
 
 @section('content')
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ url('/main') }}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Categorias
+            </li>
+        </ol>
+    </nav>
+
     <a href="{{ url('category/create') }}" class="btn btn-primary mb-5">Crear categoria</a>
-    <a href="{{ url('category/trashed') }}" class="btn btn-primary mb-5">Activar categoria</a>
 
     <div class="card">
         <div class="card-header">
