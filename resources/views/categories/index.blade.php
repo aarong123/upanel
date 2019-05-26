@@ -2,23 +2,7 @@
 
 @section('content')
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ url('/main') }}">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="{{ url('/category') }}">Categor&iacute;as</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Crear
-            </li>
-        </ol>
-    </nav>
-
-    <a href="{{ url('category/create') }}" class="btn btn-primary mb-5">Crear categor&iacute;as</a>
-
-    @if (session()->has('success'))
+@if (session()->has('success'))
 
         <div class="alert alert-success" role="alert">
             <strong>
