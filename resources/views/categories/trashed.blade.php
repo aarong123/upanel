@@ -2,16 +2,13 @@
 
 @section('content')
 
-    <a href="{{ url('category/create') }}" class="btn btn-primary">Crear categoria</a>
-    <a href="{{ url('category/trashed') }}" class="btn btn-primary">Activar categoria</a>
-
     <table class="table table-hover table-dark mt-5">
         <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Descripción</th>
-            <th scope="col">Opciones</th>
+            <th scope="col">Opción</th>
         </tr>
         </thead>
         <tbody>
@@ -21,24 +18,16 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->description }}</td>
                 <td>
-                    <!-- Example single danger button -->
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            Action
-                        </button>
-                        <div class="dropdown-menu">
-                            <form method="post" action="{{ url('/category/trashed/active/' . $category->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="dropdown-item">Activar
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    <form method="post" action="{{ url('/category/trashed/active/' . $category->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Activar</button>
                 </td>
             </tr>
         @endforeach
     </table>
+    <div style="width: 1500px; margin: 0 auto;"> 
+            <a href="{{ url('/category') }}" class="btn btn-primary">Atr&aacute;s</a>
+    </div>
 
 @stop

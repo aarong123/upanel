@@ -26,42 +26,26 @@
             </strong>
         </div>
 
-    @endif
+    @endif 
 
-    <div class="card mb-5">
-        <div class="card-header">
-            Creaci&oacute;n de categor&iacute;as
-        </div>
-        <div class="card-body">
-            <form method="post" action="{{ url('category/register') }}">
-                @csrf
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" placeholder="Nombre" name="name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="description">Descripci&oacute;n</label>
-                        <input type="text" class="form-control" id="description" placeholder="Descripci&oacute;n"
-                               name="description">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
-    </div>
+<div class="wrapper">
+        <form class= "formulario" method="post" action="{{ url('category/register') }}">
+            @csrf
+            <p class="title">Creación de categor&iacute;as</p>
+                    <input type="text" placeholder="Nombre" name="name"/>
+                    <i class="fa fa-signature"></i>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ url('/main') }}">Home</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Categor&iacute;as
-            </li>
-        </ol>
-    </nav>
+                    <input type="text" placeholder="Descripci&oacute;n" name="description">
+                    <i class="fa fa-file-alt"></i>
+            <button>
+                <i class="spinner"></i>
+                <span class="state">Crear</span>
+            </button>
+        </form>
+</div>
 
+<br>
+  
     <div class="card">
         <div class="card-header">
             Listado de categor&iacute;as
@@ -87,7 +71,7 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
-                                    Action
+                                    Seleccionar opción
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"
@@ -105,7 +89,16 @@
                     </tr>
                 @endforeach
             </table>
+            <br>
+            <div style="text-align:center; margin: 0 auto;"> 
+            <a href="{{ url('category/trashed') }}" class="btn btn-primary">Activar categor&iacute;a</a>
+            </div>
         </div>
     </div>
 
+    <br>
+    <div style="width: 1500px; margin: 0 auto;"> 
+            <a href="{{ url('/main') }}" class="btn btn-primary">Ir al men&uacute; principal</a>
+    </div>
+    <br>
 @stop
