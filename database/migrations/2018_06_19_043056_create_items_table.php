@@ -15,7 +15,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_category');
+            $table->unsignedInteger('category_id');
             $table->string('code', 50)->nullable();
             $table->string('name', 100)->unique();
             $table->decimal('price_sale', 11, 2);
@@ -24,7 +24,7 @@ class CreateItemsTable extends Migration
             $table->boolean('state')->default(1);
             $table->timestamps();
 
-            $table->foreign('id_category')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
