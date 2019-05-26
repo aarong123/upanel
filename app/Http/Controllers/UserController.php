@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $persons = Person::paginate();
+        $persons = Person::withTrashed()->get();
         return view('users.index', compact('persons'));
     }
 
@@ -32,17 +32,20 @@ class UserController extends Controller
             'password' => $request->password,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', "La persona $person->name se ha creado con exito");
     }
 
-    public function edit(Person $person)
+    public function edit($person)
     {
         $roles = Role::all();
+        $person = Person::withTrashed()->whereId($person)->first();
         return view('users.edit', compact('person', 'roles'));
     }
 
-    public function update(Request $request, Person $person)
+    public function update(Request $request, $person)
     {
+        $person = Person::withTrashed()->whereId($person)->first();
+
         $person->name = $request->name;
         $person->lastname = $request->lastname;
         $person->type_doc = $request->type_doc;
@@ -52,31 +55,26 @@ class UserController extends Controller
         $person->email = $request->email;
         $person->save();
 
-        $user =  User::findOrFail($person->user->id);
+        $user = User::findOrFail($person->user->id);
         $user->user = $request->user;
         $user->password = $request->password;
         $user->role_id = $request->role_id;
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', "La persona $person->name se ha actualizdo con exito");
     }
 
     public function deactive(Person $person)
     {
         $person->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success', "La persona $person->name se ha desactivado con exito");
     }
 
-    public function trashed()
-    {
-        $persons = Person::onlyTrashed()->get();
-        return view('users.trashed', compact('persons'));
-    }
 
-    public function active(Person $person)
+    public function active($person)
     {
-        dd($person);
+        $person = Person::withTrashed()->whereId($person)->first();
         $person->restore();
-        return redirect()->back();
+        return redirect()->back()->with('success', "La persona $person->name se ha activado con exito");
     }
 }
