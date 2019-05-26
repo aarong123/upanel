@@ -21,7 +21,7 @@ class CreateItemsTable extends Migration
             $table->decimal('price_sale', 11, 2);
             $table->integer('stock');
             $table->string('description', 256)->nullable();
-            $table->boolean('state')->default(1);
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');

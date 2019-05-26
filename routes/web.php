@@ -55,8 +55,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/item/register', 'ItemController@store');
         Route::get('/item/edit/{item}', 'ItemController@edit');
         Route::put('/item/update/{item}', 'ItemController@update');
-        Route::delete('item/trashed/active/{item}', 'ItemController@active');
         Route::delete('/item/deactive/{item}', 'ItemController@deactive');
+        Route::delete('/item/active/{item}', 'ItemController@active');
         Route::get('/item/trashed', 'CategoryController@trashed');
     });
 });

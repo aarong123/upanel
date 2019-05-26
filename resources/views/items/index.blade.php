@@ -13,6 +13,16 @@
     </nav>
     <a href="{{ url('item/create') }}" class="btn btn-primary mb-5">Crear producto</a>
 
+    @if (session()->has('success'))
+
+        <div class="alert alert-success" role="alert">
+            <strong>
+                {{ session()->get('success') }}
+            </strong>
+        </div>
+
+    @endif
+
     <div class="container">
 
         <div class="card">
@@ -24,6 +34,7 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Estado</th>
                         <th scope="col">Código</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Precio de venta</th>
@@ -40,6 +51,7 @@
                     @foreach($items as $item)
                         <tr>
                             <th scope="row">{{ $item->id }}</th>
+                            <td>{{ ($item->deleted_at) ? "Desactivado" : "Activado" }}</td>
                             <td>{{ $item->code }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->price_sale }}</td>
@@ -48,8 +60,8 @@
                             <td>{{ $item->expiration_date }}</td>
                             <td>{{ $item->sales_threshold }}</td>
                             <td>{{ $item->stock_threshold }}</td>
-                            <td>{{ $item->expiration_threshold }}</td>  
-                            <td>                   
+                            <td>{{ $item->expiration_threshold }}</td>
+                            <td>
                                 <!-- Example single danger button -->
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
@@ -59,12 +71,21 @@
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="{{ url('/item/edit/' . $item->id) }}">Editar</a>
                                         <div class="dropdown-divider"></div>
-                                        <form method="post" action="{{ url('/item/deactive/' . $item->id) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="dropdown-item">Desactivar
-                                            </button>
-                                        </form>
+                                        @if($item->deleted_at)
+                                            <form method="post" action="{{ url('/item/active/' . $item->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item">Activar
+                                                </button>
+                                            </form>
+                                        @else
+                                            <form method="post" action="{{ url('/item/deactive/' . $item->id) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="dropdown-item">Desactivar
+                                                </button>
+                                            </form>
+                                        @endif
                                     </div>
                                 </div>
                             </td>
