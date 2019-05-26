@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ url('/main') }}">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Productos
+            </li>
+        </ol>
+    </nav>
     <a href="{{ url('item/create') }}" class="btn btn-primary">Crear producto</a>
 
     <div class="container">

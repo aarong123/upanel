@@ -12,11 +12,12 @@
         "heroku": "git push heroku master",
         "heroku-postbuild": "npm run production"
     },
-    "devDependencies": {
+    "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.2",
         "axios": "^0.18",
         "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
+        "datatables.net-bs4": "^1.10.19",
         "jquery": "^3.2",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
