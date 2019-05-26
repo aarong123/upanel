@@ -2,20 +2,6 @@
 
 @section('content')
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ url('/main') }}">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="{{ url('/category') }}"> Categor&iacute;as
-                </a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Edici&oacute;n
-            </li>
-        </ol>
-    </nav>
     @if (session()->has('success'))
 
         <div class="alert alert-success" role="alert">
@@ -23,34 +9,29 @@
                 {{ session()->get('success') }}
             </strong>
         </div>
-
     @endif
 
-    <div class="card">
-        <div class="card-header">
-            Edici&oacute;n de categor&iacute;as
-
-        </div>
-        <div class="card-body">
-            <form method="post" action="{{ url('category/update/' . $category->id) }}">
+        <div class="wrapper">
+            <form class= "formulario" method="post" action="{{ url('category/update/' . $category->id) }}">
                 @csrf
-                @method('PUT')
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" placeholder="Nombre" name="name"
-                               value="{{ $category->name }}">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="description">Descripcion</label>
-                        <input type="text" class="form-control" id="description" placeholder="Descripcion"
-                               name="description" value="{{ $category->description }}">
-                    </div>
-                </div>
+                @method('PUT')    
+                <p class="title">Edici&oacute;n de categor&iacute;as</p>
 
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                        <input type="text" placeholder="Nombre" name="name" value="{{ $category->name }}"/>
+                        <i class="fa fa-signature"></i>
+    
+                        <input type="text" placeholder="Descripci&oacute;n" name="description" value="{{ $category->description }}">
+                        <i class="fa fa-file-alt"></i>
+
+                <button>
+                    <i class="spinner"></i>
+                    <span class="state">Editar</span>
+                </button>
             </form>
         </div>
+        <br>
+    <div style="width: 1500px; margin: 0 auto;"> 
+            <a href="{{ url('/category') }}" class="btn btn-primary">Atr&aacute;s</a>
     </div>
-
+    <br>
 @stop
