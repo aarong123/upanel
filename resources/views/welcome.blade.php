@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>UPanel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -12,12 +12,13 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                color: #ffffff;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                font-family: "Open Sans", sans-serif;
+                background: url("https://www.iberopuebla.mx/sites/default/files/styles/1920x930_s_c/public/slidp/img-bg/00_img_d._inteligencia_empresarial_copy.jpg?itok=OyZVz4RC") 50% fixed;
+                background-size: cover;
             }
 
             .full-height {
@@ -36,7 +37,7 @@
 
             .top-right {
                 position: absolute;
-                right: 10px;
+                right: 1px;
                 top: 18px;
             }
 
@@ -46,12 +47,13 @@
 
             .title {
                 font-size: 84px;
+                color: #f54545;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #000000;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 15px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -61,6 +63,7 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
         </style>
     </head>
     <body>
@@ -68,7 +71,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}" id="home">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,17 +84,17 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{ env('APP_NAME') }}
-                </div>
+                    UPanel
+            </div>
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Dashboard</a>
-                    <a href="{{ url('category') }}">Categorias</a>
+                    <a href="{{ url('category') }}">Categorías</a>
                     <a href="{{ url('item') }}">Productos</a>
                     <a href="https://blog.laravel.com">Ventas</a>
                     <a href="https://nova.laravel.com">Compras</a>
                     <a href="{{ url('rol') }}">Roles</a>
-                    <a href="{{ url('user') }}">Gestion de usuarios</a>
+                    <a href="{{ url('user') }}">Gestión de usuarios</a>
                 </div>
             </div>
         </div>
