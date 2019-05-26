@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <a href="{{ url('category/create') }}" class="btn btn-primary">Crear categoría</a>
-    <a href="{{ url('category/trashed') }}" class="btn btn-primary">Activar categoría</a>
+    <a href="{{ url('category/create') }}" class="btn btn-primary">Crear categoria</a>
+    <a href="{{ url('category/trashed') }}" class="btn btn-primary">Activar categoria</a>
 
     <table class="table table-hover table-dark mt-5">
         <thead>
@@ -21,10 +21,11 @@
                 <td>{{ $category->name }}</td>
                 <td>{{ $category->description }}</td>
                 <td>
+                    <!-- Example single danger button -->
                     <div class="btn-group">
                         <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                            Seleccionar opción
+                            Action
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{ url('/category/edit/' . $category->id) }}">Editar</a>

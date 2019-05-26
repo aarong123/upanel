@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="wrapper">
-    <form class="formulario" method="POST" action="{{ route('login') }}">
+    <form class="login" method="POST" action="{{ route('login') }}">
       @csrf
       <p class="title">Inicio de sesión</p>
 
@@ -27,5 +27,6 @@
         <span class="state">Iniciar sesión</span>
       </button>
     </form>
+    </p>
   </div>
 @endsection
