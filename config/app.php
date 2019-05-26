@@ -55,7 +55,9 @@ return [
     'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
+    'key' => env('APP_KEY', 'SomeRandomString'),
 
+    'cipher' => 'AES-256-CBC',
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

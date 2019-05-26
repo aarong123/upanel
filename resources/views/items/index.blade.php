@@ -29,7 +29,6 @@
                         <th scope="col">Precio de venta</th>
                         <th scope="col">Stock</th>
                         <th scope="col">Descripción</th>
-                        <th scope="col">Estado</th>
                         <th scope="col">Fecha de expiración</th>
                         <th scope="col">Umbral de ventas</th>
                         <th scope="col">Umbral de stock</th>
@@ -46,12 +45,11 @@
                             <td>{{ $item->price_sale }}</td>
                             <td>{{ $item->stock }}</td>
                             <td>{{ $item->description }}</td>
-                            <td>{{ $item->state }}</td>
                             <td>{{ $item->expiration_date }}</td>
                             <td>{{ $item->sales_threshold }}</td>
                             <td>{{ $item->stock_threshold }}</td>
-                            <td>{{ $item->expiration_threshold }}</td>
-                            <td>
+                            <td>{{ $item->expiration_threshold }}</td>  
+                            <td>                   
                                 <!-- Example single danger button -->
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"

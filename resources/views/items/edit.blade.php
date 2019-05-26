@@ -106,7 +106,7 @@
                 <input class="form-control" placeholder="Ingrese descripción" type="text" name="description"
                        value="{{ $item->description }}">
             </div>
-        </div>
+      
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 @stop

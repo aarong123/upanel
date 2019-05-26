@@ -11,8 +11,9 @@ class ItemController extends Controller
 
     public function index()
     {
-        $items = Item::all();
+        $items = Item::withTrashed()->get();
         return view('items.index', compact('items'));
+    
     }
 
     public function edit(Item $item)
@@ -35,4 +36,5 @@ class ItemController extends Controller
         $item->save();
         return redirect()->back()->with('success',"El producto $item->name se ha actualizado con exito");
     }
+    
 }
