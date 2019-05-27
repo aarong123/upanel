@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
-    Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['Administrador']], function () {
         // rutas de roles
         Route::get('/rol', 'RolController@index');
 
@@ -45,9 +45,39 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/category/register', 'CategoryController@store');
         Route::get('/category/edit/{category}', 'CategoryController@edit');
         Route::put('/category/update/{category}', 'CategoryController@update');
-        Route::delete('category/trashed/active/{category}', 'CategoryController@active');
         Route::delete('/category/deactive/{category}', 'CategoryController@deactive');
-        Route::get('/category/trashed', 'CategoryController@trashed');
+        Route::delete('/category/active/{category}', 'CategoryController@active');
+
+        // rutas de productos
+        Route::get('/item', 'ItemController@index');
+        Route::get('/item/create', 'ItemController@create');
+        Route::post('/item/register', 'ItemController@store');
+        Route::get('/item/edit/{item}', 'ItemController@edit');
+        Route::put('/item/update/{item}', 'ItemController@update');
+        Route::delete('/item/deactive/{item}', 'ItemController@deactive');
+        Route::delete('/item/active/{item}', 'ItemController@active');
+        Route::get('/item/trashed', 'CategoryController@trashed');
+    });
+
+
+
+
+    Route::group(['middleware' => ['Vendedor']], function () {
+// rutas de client
+        Route::get('/client', 'ClientController@index');
+        Route::post('/client/register', 'ClientController@store');
+        Route::put('/client/update', 'ClientController@update');
+        Route::get('/client/selectClient', 'ClientController@selectClient');
+    });
+    Route::group(['middleware' => ['Almacenero']], function () {
+        // rutas de categorias
+        Route::get('/category', 'CategoryController@index');
+        Route::get('/category/create', 'CategoryController@create');
+        Route::post('/category/register', 'CategoryController@store');
+        Route::get('/category/edit/{category}', 'CategoryController@edit');
+        Route::put('/category/update/{category}', 'CategoryController@update');
+        Route::delete('/category/deactive/{category}', 'CategoryController@deactive');
+        Route::delete('/category/active/{category}', 'CategoryController@active');
 
         // rutas de productos
         Route::get('/item', 'ItemController@index');
