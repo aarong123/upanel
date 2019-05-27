@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <form method="post" action="{{ url('user/register') }}">
+<div class="wrapper">
+    <form class="f1" method="post" action="{{ url('user/register') }}">
         @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -59,8 +59,12 @@
                 @endforeach
             </select>
         </div>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button>
+            <i class="spinner"></i>
+            <span class="state" >Enviar</span>
+        </button>
+        <!--<button type="submit" class="btn btn-primary">Enviar</button>-->
     </form>
+</div>
 
 @stop

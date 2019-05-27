@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <form method="post" action="{{ url('user/update/' . $person->id) }}">
+<div class="wrapper">
+    <form class ="f1" method="post" action="{{ url('user/update/' . $person->id) }}">
         @csrf
         @method('PUT')
-        <div class="form-row">
-            <div class="form-group col-md-6">
+        <div class="form-group row">
+          <div class="form-group col-md-6">
                 <label for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" placeholder="Nombre" name="name" value="{{ $person->name }}">
-            </div>
+                <input type="text" class="form-control" placeholder="Nombre"  placeholder="nombre" name="name" value="{{ $person->name }}">
+          </div>
             <div class="form-group col-md-6">
                 <label for="lastname">Apellido</label>
                 <input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" value="{{ $person->lastname }}">
@@ -60,8 +60,12 @@
                 @endforeach
             </select>
         </div>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button>
+            <i class="spinner"></i>
+            <span class="state" >Enviar</span>
+        </button>
+        <!--<button type="submit" class="btn btn-primary">Enviar</button>-->
+    </div>
     </form>
 
 @stop
