@@ -66,6 +66,7 @@ class UserController extends Controller
 
     public function deactive(Person $person)
     {
+        $person->user()->delete();
         $person->delete();
         return redirect()->back()->with('success', "La persona $person->name se ha desactivado con exito");
     }
