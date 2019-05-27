@@ -2,21 +2,10 @@
 
 @section('content')
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ url('/main') }}">Home</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Roles
-            </li>
-        </ol>
-    </nav>
-
-    <div class="container">
+    <div class="container" style="width:1100px;padding:0px 30px 0px 0px">
         <div class="card">
             <div class="card-header">
-                Featured
+                Roles del sistema
             </div>
             <div class="card-body">
                 <table class="table table-hover table-dark" id="table">
@@ -40,5 +29,10 @@
             </div>
         </div>
     </div>
+    <br>
+    <div style="margin: 0 auto; width:1100px;"> 
+        <a href="{{ url('/main') }}" class="btn btn-primary">Ir al men&uacute; principal</a>
+    </div>
+    <br>
 
 @stop
