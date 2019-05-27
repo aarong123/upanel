@@ -3,7 +3,6 @@
 @section('content')
 
     <a href="{{ url('user/create') }}" class="btn btn-primary">Crear usuario</a>
-    <a href="{{ url('user/trashed') }}" class="btn btn-primary">Activar usuarios</a>
 
     <table class="table table-hover table-dark mt-5">
         <thead>
@@ -40,12 +39,10 @@
                             Action
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ url('/user/edit/' . $person->id) }}">Editar</a>
-                            <div class="dropdown-divider"></div>
-                            <form method="post" action="{{ url('user/deactive/' . $person->id) }}">
+                            <form method="post" action="{{ url('user/trashed/active/' . $person->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="dropdown-item">Desactivar
+                                <button type="submit" class="dropdown-item">Activar
                                 </button>
                             </form>
                         </div>
