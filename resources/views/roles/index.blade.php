@@ -34,5 +34,4 @@
         <a href="{{ url('/main') }}" class="btn btn-primary">Ir al men&uacute; principal</a>
     </div>
     <br>
-
 @stop
