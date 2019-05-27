@@ -35,9 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/user/register', 'UserController@store');
         Route::get('/user/edit/{person}', 'UserController@edit');
         Route::put('/user/update/{person}', 'UserController@update');
-        Route::delete('/user/trashed/active/{person}', 'UserController@active');
         Route::delete('/user/deactive/{person}', 'UserController@deactive');
-        Route::get('/user/trashed', 'UserController@trashed');
+        Route::delete('/user/active/{person}', 'UserController@active');
 
         // rutas de categorias
         Route::get('/category', 'CategoryController@index');
