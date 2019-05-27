@@ -26,7 +26,7 @@
             </tr>
         @endforeach
     </table>
-    <div style="width: 1500px; margin: 0 auto;"> 
+    <div> 
             <a href="{{ url('/category') }}" class="btn btn-primary">Atr&aacute;s</a>
     </div>
 

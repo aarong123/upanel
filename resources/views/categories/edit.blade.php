@@ -30,8 +30,8 @@
             </form>
         </div>
         <br>
-    <div style="width: 1500px; margin: 0 auto;"> 
-            <a href="{{ url('/category') }}" class="btn btn-primary">Atr&aacute;s</a>
+    <div> 
+        <a href="{{ url('/category') }}" class="btn btn-primary">Atr&aacute;s</a>
     </div>
     <br>
 @stop
