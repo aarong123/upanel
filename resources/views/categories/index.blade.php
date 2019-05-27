@@ -93,7 +93,7 @@
     </div>
 
     <br>
-    <div style="width: 1500px; margin: 0 auto;">
+    <div style="margin: 0 auto;">
         <a href="{{ url('/main') }}" class="btn btn-primary">Ir al men&uacute; principal</a>
     </div>
     <br>
