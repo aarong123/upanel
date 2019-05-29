@@ -3,6 +3,9 @@
 namespace Upanel\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Upanel\Http\Middleware\Administrador;
+use Upanel\Http\Middleware\Almacenero;
+use Upanel\Http\Middleware\Vendedor;
 
 class Kernel extends HttpKernel
 {
@@ -60,6 +63,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'Administrador' => Administrador::class,
+        'Vendedor' => Vendedor::class,
+        'Almacenero' => Almacenero::class,
     ];
 
     /**

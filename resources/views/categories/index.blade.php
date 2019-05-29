@@ -2,22 +2,6 @@
 
 @section('content')
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ url('/main') }}">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="{{ url('/category') }}">Categor&iacute;as</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Crear
-            </li>
-        </ol>
-    </nav>
-
-    <a href="{{ url('category/create') }}" class="btn btn-primary mb-5">Crear categor&iacute;as</a>
-
     @if (session()->has('success'))
 
         <div class="alert alert-success" role="alert">
@@ -28,39 +12,23 @@
 
     @endif
 
-    <div class="card mb-5">
-        <div class="card-header">
-            Creaci&oacute;n de categor&iacute;as
-        </div>
-        <div class="card-body">
-            <form method="post" action="{{ url('category/register') }}">
-                @csrf
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Nombre</label>
-                        <input type="text" class="form-control" id="name" placeholder="Nombre" name="name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="description">Descripci&oacute;n</label>
-                        <input type="text" class="form-control" id="description" placeholder="Descripci&oacute;n"
-                               name="description">
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
+    <div class="wrapper">
+        <form class="formulario" method="post" action="{{ url('category/register') }}">
+            @csrf
+            <p class="title">Creación de categor&iacute;as</p>
+            <input type="text" placeholder="Nombre" name="name"/>
+            <i class="fa fa-signature"></i>
+
+            <input type="text" placeholder="Descripci&oacute;n" name="description">
+            <i class="fa fa-file-alt"></i>
+            <button>
+                <i class="spinner"></i>
+                <span class="state">Crear</span>
+            </button>
+        </form>
     </div>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ url('/main') }}">Home</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">
-                Categor&iacute;as
-            </li>
-        </ol>
-    </nav>
+    <br>
 
     <div class="card">
         <div class="card-header">
@@ -71,6 +39,7 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Estado</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Descripci&oacute;n</th>
                     <th scope="col">Opciones</th>
@@ -80,6 +49,7 @@
                 @foreach($categories as $category)
                     <tr>
                         <th scope="row">{{ $category->id }}</th>
+                        <td>{{ ($category->deleted_at) ? "Desactivado" : "Activado" }}</td>
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->description }}</td>
                         <td>
@@ -87,18 +57,28 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
-                                    Action
+                                    Seleccionar opción
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item"
                                        href="{{ url('/category/edit/' . $category->id) }}">Editar</a>
                                     <div class="dropdown-divider"></div>
-                                    <form method="post" action="{{ url('/category/deactive/' . $category->id) }}">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="dropdown-item">Desactivar
-                                        </button>
-                                    </form>
+                                    @if($category->deleted_at)
+
+                                        <form method="post" action="{{ url('/category/active/' . $category->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="dropdown-item">Activar
+                                            </button>
+                                        </form>
+                                    @else
+                                        <form method="post" action="{{ url('/category/deactive/' . $category->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="dropdown-item">Desactivar
+                                            </button>
+                                        </form>
+                                    @endif
                                 </div>
                             </div>
                         </td>
@@ -107,5 +87,9 @@
             </table>
         </div>
     </div>
-
+    <br>
+    <div>
+        <a href="{{ url('/main') }}" class="btn btn-primary">Ir al men&uacute; principal</a>
+    </div>
+    <br>
 @stop
