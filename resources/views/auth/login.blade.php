@@ -7,7 +7,7 @@
       @csrf
       <p class="title">Inicio de sesión</p>
 
-      <input type="text" placeholder="Usuario" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus/>
+      <input type="text" placeholder="Nombre de usuario" name="user" value="{{ old('user') }}" required autocomplete="user" autofocus/>
       <i class="fa fa-user"></i>
       @error('user')
         <span class="invalid-feedback" role="alert">

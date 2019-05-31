@@ -83,7 +83,7 @@
                 </table>
                 <br>
             <div style="text-align:center; margin: 0 auto;"> 
-            <a href="{{ url('item/create') }}" class="btn btn-primary">Crear producto</a>
+            <a href="{{ url('item/create') }}" class="btn btn-primary">Registrar un nuevo producto</a>
             </div>
             </div>
         </div>

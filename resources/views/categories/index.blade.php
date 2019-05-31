@@ -15,7 +15,7 @@
     <div class="wrapper">
         <form class="formulario" method="post" action="{{ url('category/register') }}">
             @csrf
-            <p class="title">Creación de categor&iacute;as</p>
+            <p class="title">Registro de categor&iacute;a</p>
             <input type="text" placeholder="Nombre" name="name"/>
             <i class="fa fa-signature"></i>
 
@@ -23,7 +23,7 @@
             <i class="fa fa-file-alt"></i>
             <button>
                 <i class="spinner"></i>
-                <span class="state">Crear</span>
+                <span class="state">Registrar categoría</span>
             </button>
         </form>
     </div>

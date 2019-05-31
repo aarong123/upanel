@@ -12,7 +12,7 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Rol</th>
                         <th scope="col">Descripción</th>
                     </tr>
                     </thead>

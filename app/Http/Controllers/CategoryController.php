@@ -40,19 +40,19 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->back()->with('success', "La categoría $category->name se ha actualizado con exito");
+        return redirect()->back()->with('success', "La categoría $category->name se ha actualizado con éxito.");
     }
 
     public function deactive(Category $category)
     {
         $category->delete();
-        return redirect()->back()->with('success', "La categoría $category->name se ha desactivado con exito");
+        return redirect()->back()->with('success', "La categoría $category->name se ha desactivado con éxito.");
     }
 
     public function active($category)
     {
         $category = Category::withTrashed()->whereId($category)->first();
         $category->restore();
-        return redirect()->back()->with('success', "La categoría $category->name se ha activado con exito");
+        return redirect()->back()->with('success', "La categoría $category->name se ha activado con éxito.");
     }
 }

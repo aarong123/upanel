@@ -61,14 +61,14 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
         $user->save();
 
-        return redirect()->back()->with('success', "La persona $person->name se ha actualizdo con exito");
+        return redirect()->back()->with('success', "La persona $person->name se ha actualizado con éxito.");
     }
 
     public function deactive(Person $person)
     {
         $person->user()->delete();
         $person->delete();
-        return redirect()->back()->with('success', "La persona $person->name se ha desactivado con exito");
+        return redirect()->back()->with('success', "La persona $person->name se ha desactivado con éxito.");
     }
 
 

@@ -9,13 +9,14 @@
                 {{ session()->get('success') }}
             </strong>
         </div>
+        
     @endif
 
         <div class="wrapper">
             <form class= "formulario" method="post" action="{{ url('category/update/' . $category->id) }}">
                 @csrf
                 @method('PUT')    
-                <p class="title">Edici&oacute;n de categor&iacute;as</p>
+                <p class="title">Edici&oacute;n de la categor&iacute;a</p>
 
                         <input type="text" placeholder="Nombre" name="name" value="{{ $category->name }}"/>
                         <i class="fa fa-signature"></i>
@@ -25,7 +26,7 @@
 
                 <button>
                     <i class="spinner"></i>
-                    <span class="state">Editar</span>
+                    <span class="state">Editar categoría</span>
                 </button>
             </form>
         </div>

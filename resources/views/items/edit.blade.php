@@ -16,7 +16,7 @@
             <form class= "formulario1" method="post" action="{{ url('item/update/' . $item->id) }}">
                 @csrf
                 @method('PUT')
-                <p class="title">Creación de productos</p>
+                <p class="title">Edici&oacute;n del producto</p>
                 <div class="form-group row">
                     <label class="col-md-3 form-control-label">Categoría (*)</label>
                     <div class="col-md-9">
@@ -98,7 +98,7 @@
                 <div style="text-align:center; padding:40px 0px 0px 0px;">
                         <button type="submit" class="btn btn-primary">
                             <i class="spinner"></i>
-                            Editar
+                            Editar producto
                 </button>
                 </div>
             </form>

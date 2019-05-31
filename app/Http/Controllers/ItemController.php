@@ -50,21 +50,21 @@ class ItemController extends Controller
         $item->expiration_threshold = $request->expiration_threshold;
         $item->description = $request->description;
         $item->save();
-        return redirect()->back()->with('success', "El producto $item->name se ha actualizado con exito");
+        return redirect()->back()->with('success', "El producto $item->name se ha actualizado con éxito.");
     }
 
     public function active($item)
     {
         $item = Item::withTrashed()->whereId($item)->first();
         $item->restore();
-        return redirect()->back()->with('success', "El producto $item->name se ha activado con exito");
+        return redirect()->back()->with('success', "El producto $item->name se ha activado con éxito.");
 
     }
 
     public function deactive(Item $item)
     {
         $item->delete();
-        return redirect()->back()->with('success', "El producto $item->name se ha desactivado con exito");
+        return redirect()->back()->with('success', "El producto $item->name se ha desactivado con éxito.");
 
     }
 
