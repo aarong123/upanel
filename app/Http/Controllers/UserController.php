@@ -75,7 +75,9 @@ class UserController extends Controller
     public function active($person)
     {
         $person = Person::withTrashed()->whereId($person)->first();
+        $user = User::onlyTrashed()->whereId($person->id)->first();
         $person->restore();
+        $user->restore();
         return redirect()->back()->with('success', "La persona $person->name se ha activado con exito");
     }
 }
