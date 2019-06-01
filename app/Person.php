@@ -25,4 +25,9 @@ class Person extends Model
     {
         return $this->hasOne(User::class, 'id');
     }
+
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class, 'id');
+    }
 }
