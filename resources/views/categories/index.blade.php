@@ -35,7 +35,7 @@
             Listado de categor&iacute;as
         </div>
         <div class="card-body">
-            <table class="table table-hover table-dark mt-5" id="table">
+            <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                 <thead>
                 <tr>
                     <th scope="col">#</th>

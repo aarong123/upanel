@@ -17,6 +17,7 @@ class CreateProvidersTable extends Migration
             $table->unsignedInteger('id');
             $table->string('contact', 50)->nullable();
             $table->string('telephone_contact', 50)->nullable();
+            $table->softDeletes();
             $table->foreign('id', 'id')->references('id')->on('persons')->onDelete('cascade');
         });
     }
