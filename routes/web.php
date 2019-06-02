@@ -95,6 +95,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/item/deactive/{item}', 'ItemController@deactive');
         Route::delete('/item/active/{item}', 'ItemController@active');
         Route::get('/item/trashed', 'CategoryController@trashed');
+
+        //proveedores
+        Route::get('/provider', 'ProviderController@index');
+        Route::get('/provider/create', 'ProviderController@create');
+        Route::post('/provider/register', 'ProviderController@store');
+        Route::get('/provider/edit/{provider}', 'ProviderController@edit');
+        Route::put('/provider/update/{provider}', 'ProviderController@update');
+        Route::delete('/provider/deactive/{provider}', 'ProviderController@deactive');
+        Route::delete('/provider/active/{provider}', 'ProviderController@active');
     });
 });
 
