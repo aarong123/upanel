@@ -100,7 +100,7 @@
             <a href="{{ url('category') }}">Categorías</a>
             <a href="{{ url('item') }}">Productos</a>
             <a href="https://blog.laravel.com">Ventas</a>
-            <a href="https://nova.laravel.com">Compras</a>
+            <a href="{{ url('entry') }}">Compras</a>
             <a href="{{ url('provider') }}">Proveedores</a>
             <a href="{{ url('client') }}">Clientes</a>
             <a href="{{ url('rol') }}">Roles</a>

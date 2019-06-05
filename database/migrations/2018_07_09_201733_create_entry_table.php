@@ -15,10 +15,10 @@ class CreateEntryTable extends Migration
     {
         Schema::create('entries', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_provider');
-            $table->unsignedInteger('id_user');
-            $table->foreign('id_provider')->references('id')->on('providers');
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->unsignedInteger('provider_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('provider_id')->references('id')->on('providers');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('type_voucher', 20);
             $table->string('series_voucher', 7)->nullable();
             $table->string('num_voucher', 10);

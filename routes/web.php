@@ -74,6 +74,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/client/deactive/{provider}', 'ClientController@deactive');
         Route::delete('/client/active/{provider}', 'ClientController@active');
 
+        //rutas de compras
+        Route::get('/entry', 'EntryController@index');
+        Route::get('/entry/create', 'EntryController@create');
+        Route::post('/entry/register', 'EntryController@store');
+        Route::delete('/entry/deactive/{entry}', 'EntryController@deactive');
+
 
     });
 
