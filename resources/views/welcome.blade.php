@@ -102,6 +102,7 @@
             <a href="https://blog.laravel.com">Ventas</a>
             <a href="https://nova.laravel.com">Compras</a>
             <a href="{{ url('provider') }}">Proveedores</a>
+            <a href="{{ url('client') }}">Clientes</a>
             <a href="{{ url('rol') }}">Roles</a>
             <a href="{{ url('user') }}">Gestión de usuarios</a>
         </div>

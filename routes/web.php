@@ -56,7 +56,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/item/deactive/{item}', 'ItemController@deactive');
         Route::delete('/item/active/{item}', 'ItemController@active');
 
-        //proveedores
+        // rutas de proveedores
         Route::get('/provider', 'ProviderController@index');
         Route::get('/provider/create', 'ProviderController@create');
         Route::post('/provider/register', 'ProviderController@store');
@@ -64,6 +64,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/provider/update/{provider}', 'ProviderController@update');
         Route::delete('/provider/deactive/{provider}', 'ProviderController@deactive');
         Route::delete('/provider/active/{provider}', 'ProviderController@active');
+
+        // rutas de clientes
+        Route::get('/client', 'ClientController@index');
+        Route::get('/client/create', 'ClientController@create');
+        Route::post('/client/register', 'ClientController@store');
+        Route::get('/client/edit/{provider}', 'ClientController@edit');
+        Route::put('/client/update/{provider}', 'ClientController@update');
+        Route::delete('/client/deactive/{provider}', 'ClientController@deactive');
+        Route::delete('/client/active/{provider}', 'ClientController@active');
 
 
     });
@@ -95,6 +104,15 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/item/deactive/{item}', 'ItemController@deactive');
         Route::delete('/item/active/{item}', 'ItemController@active');
         Route::get('/item/trashed', 'CategoryController@trashed');
+
+        //proveedores
+        Route::get('/provider', 'ProviderController@index');
+        Route::get('/provider/create', 'ProviderController@create');
+        Route::post('/provider/register', 'ProviderController@store');
+        Route::get('/provider/edit/{provider}', 'ProviderController@edit');
+        Route::put('/provider/update/{provider}', 'ProviderController@update');
+        Route::delete('/provider/deactive/{provider}', 'ProviderController@deactive');
+        Route::delete('/provider/active/{provider}', 'ProviderController@active');
     });
 });
 
