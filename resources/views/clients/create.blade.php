@@ -12,7 +12,7 @@
     @endif
 
     <div class="wrapper">
-        <form class="formulario1" method="post" action="{{ url('user/register') }}">
+        <form class="formulario1" method="post" action="{{ url('client/register') }}">
             @csrf
             <p class="title">Registro de usuario</p>
             <div class="form-group row">
@@ -66,31 +66,6 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <div class="form-group col-md-6">
-                    <label for="user">Nombre de usuario:</label>
-                    <input type="text" placeholder="Ingrese su nombre de usuario" name="user">
-                    <i class="fa fa-user"></i>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" placeholder="Ingrese su contraseña" name="password">
-                    <i class="fa fa-key"></i>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="form-group col-md-6">
-                    <label for="role_id">Rol:</label>
-                    <select id="role_id" class="form-control" name="role_id">
-                        <option selected>Seleccione...</option>
-                        @foreach($roles as $role)
-                            <option value="{{ $role->id }}">{{ $role->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
             <div style="text-align:center; padding:40px 0px 0px 0px;">
                 <button type="submit" class="btn btn-primary">
                     <i class="spinner"></i>
@@ -101,7 +76,7 @@
     </div>
     <br>
     <div>
-        <a href="{{ url('/user') }}" class="btn btn-primary" style="text-align:center">Atr&aacute;s</a>
+        <a href="{{ url('/client') }}" class="btn btn-primary" style="text-align:center">Atr&aacute;s</a>
     </div>
     <br>
 
