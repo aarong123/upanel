@@ -23,12 +23,12 @@
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
+                        <th scope="col">Nombre(s)</th>
                         <th scope="col">Tipo de documento</th>
-                        <th scope="col">numero de documento</th>
-                        <th scope="col">direccion</th>
-                        <th scope="col">contacto</th>
-                        <th scope="col">telefono de contacto</th>
+                        <th scope="col">Número de documento</th>
+                        <th scope="col">Dirección de contacto</th>
+                        <th scope="col">Correo electrónico de contacto</th>
+                        <th scope="col">Nro. telefónico de contacto </th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -76,7 +76,7 @@
                 </table>
                 <br>
                 <div style="text-align:center; margin: 0 auto;">
-                    <a href="{{ url('provider/create') }}" class="btn btn-primary">Crear proveedor</a>
+                    <a href="{{ url('provider/create') }}" class="btn btn-primary">Registrar un nuevo proveedor</a>
                 </div>
             </div>
         </div>

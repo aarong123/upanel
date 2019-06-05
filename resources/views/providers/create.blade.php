@@ -14,20 +14,12 @@
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url('provider/register') }}">
             @csrf
-            <p class="title">Registro de proveedores</p>
+            <p class="title">Registro de proveedor</p>
             <div class="form-group row">
-                <div class="form group col-md-12">
+                <div class="form group col-md-6">
                     <label for="name">Nombre(s):</label>
-                    <input type="text" placeholder="Ingrese su(s) nombre(s)" name="name">
-                    <i class="fa fa-user"></i>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="form-group col-md-12">
-                    <label for="address">Dirección de residencia:</label>
-                    <input type="text" placeholder="Ingrese la dirección de residencia" name="address">
-                    <i class="fa fa-home"></i>
+                    <input type="text" placeholder="Ingrese el(los) nombre(s)" name="name">
+                    <i class="fa fa-building"></i>
                 </div>
             </div>
 
@@ -41,28 +33,30 @@
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="num_doc">Número de identidad:</label>
-                    <input type="number" placeholder="Ingrese su nro. de documento" name="num_doc">
+                    <label for="num_doc">Número de documento de identidad:</label>
+                    <input type="number" placeholder="Ingrese el nro. de documento" name="num_doc">
                     <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>
 
             <div class="form-group row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
                     <label for="address">Dirección de contacto:</label>
-                    <input type="text" placeholder="Ingrese la dirección de residencia" name="address">
+                    <input type="text" placeholder="Ingrese la dirección de contacto" name="address">
                     <i class="fa fa-home"></i>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label for="address">Email de contacto:</label>
-                    <input type="email" placeholder="Ingrese el email de contacto" name="contact">
-                    <i class="fa fa-home"></i>
+                <div class="form-group col-md-6">
+                    <label for="address">Correo electrónico de contacto:</label>
+                    <input type="email" placeholder="Ingrese el correo electrónico de contacto" name="contact">
+                    <i class="fa fa-at"></i>
                 </div>
+            </div>
 
-                <div class="form-group col-md-4">
-                    <label for="telephone">Número de contacto:</label>
-                    <input type="number" placeholder="Ingrese su nro. telefónico" name="telephone_contact">
+            <div class="form-group row">
+                <div class="form-group col-md-6">
+                    <label for="telephone">Número telefónico de contacto:</label>
+                    <input type="number" placeholder="Ingrese el nro. telefónico de contacto" name="telephone_contact">
                     <i class="fa fa-phone"></i>
                 </div>
             </div>
@@ -70,7 +64,7 @@
             <div style="text-align:center; padding:40px 0px 0px 0px;">
                 <button type="submit" class="btn btn-primary">
                     <i class="spinner"></i>
-                    Registrar usuario
+                    Registrar proveedor
                 </button>
             </div>
         </form>

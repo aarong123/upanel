@@ -36,7 +36,7 @@ class ProviderController extends Controller
             'contact' => $request->contact,
             'telephone_contact' => $request->telephone_contact,
         ]);
-        return redirect()->back()->with('success', "El proveedor $person->name ha sido creado");
+        return redirect()->back()->with('success', "El proveedor $person->name se ha creado con éxito.");
 
     }
 
@@ -65,7 +65,7 @@ class ProviderController extends Controller
         $provider->telephone_contact = $request->telephone_contact;
         $provider->save();
 
-        return redirect()->back()->with('success', "El proveedor $person->name ha sido creado");
+        return redirect()->back()->with('success', "El proveedor $person->name se ha actualizado con éxito.");
     }
 
     public function deactive($provider)
@@ -75,7 +75,7 @@ class ProviderController extends Controller
         $provider->delete();
         $person->delete();
 
-        return redirect()->back()->with('success', "El proveedor $person->name ha sido creado");
+        return redirect()->back()->with('success', "El proveedor $person->name se ha desactivado con éxito.");
 
     }
 
@@ -85,6 +85,6 @@ class ProviderController extends Controller
         $person = Person::withTrashed()->whereId($provider->id)->first();
         $person->restore();
         $provider->restore();
-        return redirect()->back()->with('success', "El proveedor $person->name ha sido creado");
+        return redirect()->back()->with('success', "El proveedor $person->name se ha activado con éxito.");
     }
 }

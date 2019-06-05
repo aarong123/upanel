@@ -39,10 +39,12 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                         <li class="nav-item">
+                            <!--Borra el hipervínculo de "Login" que se encuentra en la parte superior derecha
+                                de la vista de Inicio de sesión-->
+                            <!--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>-->
+                            @if (Route::has('register'))
                         </li>
-                        @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
@@ -58,7 +60,8 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                <!--Cambio de nombre de "Logout" a "Cerrar sesión"-->
+                                    {{ __('Cerrar sesión') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

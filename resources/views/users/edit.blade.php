@@ -49,8 +49,8 @@
                         <label for="type_doc">Tipo de documento:</label>
                         <select id="type_doc" class="form-control" name="type_doc">
                             <option selected>Seleccione...</option>
-                            <option value="CC">Cédula de ciudadanía</option>
-                            <option value="CE">Cédula de extranjería</option>
+                            <option {{ ($person->type_doc == 'CC') ? 'selected' : ''}} value="CC">Cédula de ciudadanía</option>
+                            <option {{ ($person->type_doc == 'CE') ? 'selected' : ''}} value="CE">Cédula de extranjería</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">

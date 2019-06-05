@@ -34,7 +34,7 @@
         <div class="card-header">
             Listado de categor&iacute;as
         </div>
-        <div class="card-body">
+        <div class="card-body" style="margin: 0 auto;">
             <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                 <thead>
                 <tr>
