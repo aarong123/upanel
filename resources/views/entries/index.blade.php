@@ -16,7 +16,7 @@
 
         <div class="card">
             <div class="card-header">
-                Listado de todos los de ventas
+                Listado de compras
             </div>
             <div class="card-body" style="margin: 0 auto;">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
@@ -31,8 +31,7 @@
                     @foreach($entries as $entry)
                         <tr>
                             <th scope="row">{{ $entry->id }}</th>
-                            <th scope="row">{{ $entry->state }}</th>
-
+                            <td>{{ $entry->state }}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
@@ -55,7 +54,7 @@
                 </table>
                 <br>
                 <div style="text-align:center; margin: 0 auto;">
-                    <a href="{{ url('entry/create') }}" class="btn btn-primary">Registrar un nueva compra</a>
+                    <a href="{{ url('entry/create') }}" class="btn btn-primary">Registrar una nueva compra</a>
                 </div>
             </div>
         </div>

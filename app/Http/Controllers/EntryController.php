@@ -56,7 +56,7 @@ class EntryController extends Controller
     public function deactive($entry)
     {
         $entry = Entry::findOrFail($entry);
-        $entry->state = 'Anulado';
+        $entry->state = 'Anulada';
         $entry->save();
         return redirect()->back()->with('success', "La compra ha sido anulada con éxito.");
 
