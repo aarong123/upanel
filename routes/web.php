@@ -80,6 +80,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/entry/register', 'EntryController@store');
         Route::delete('/entry/deactive/{entry}', 'EntryController@deactive');
 
+        // rutas de ventas
+        Route::get('/sale', 'SaleController@index');
+        Route::get('/sale/create', 'SaleController@create');
+        Route::post('/sale/register', 'SaleController@store');
+        Route::delete('/sale/deactive/{sale}', 'SaleController@deactive');
 
     });
 
@@ -90,6 +95,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/client/register', 'ClientController@store');
         Route::put('/client/update', 'ClientController@update');
         Route::get('/client/selectClient', 'ClientController@selectClient');
+
+        // rutas de ventas
+        Route::get('/sale', 'SaleController@index');
+        Route::get('/sale/create', 'SaleController@create');
+        Route::post('/sale/register', 'SaleController@store');
+        Route::delete('/sale/deactive/{sale}', 'SaleController@deactive');        
     });
     Route::group(['middleware' => ['Almacenero']], function () {
         // rutas de categorias
@@ -119,6 +130,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/provider/update/{provider}', 'ProviderController@update');
         Route::delete('/provider/deactive/{provider}', 'ProviderController@deactive');
         Route::delete('/provider/active/{provider}', 'ProviderController@active');
+
+        //rutas de compras
+        Route::get('/entry', 'EntryController@index');
+        Route::get('/entry/create', 'EntryController@create');
+        Route::post('/entry/register', 'EntryController@store');
+        Route::delete('/entry/deactive/{entry}', 'EntryController@deactive');        
     });
 });
 

@@ -99,7 +99,7 @@
             <a href="https://laravel.com/docs">Dashboard</a>
             <a href="{{ url('category') }}">Categorías</a>
             <a href="{{ url('item') }}">Productos</a>
-            <a href="https://blog.laravel.com">Ventas</a>
+            <a href="{{ url('sale') }}">Ventas</a>
             <a href="{{ url('entry') }}">Compras</a>
             <a href="{{ url('provider') }}">Proveedores</a>
             <a href="{{ url('client') }}">Clientes</a>
