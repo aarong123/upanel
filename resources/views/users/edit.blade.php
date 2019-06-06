@@ -13,20 +13,20 @@
     @endif
 
     <div class="wrapper">
-            <form class="formulario1" method="post" action="{{ url('user/update/' . $person->id) }}">
+            <form class="formulario1" method="post" action="{{ url('user/update/' . $user->id) }}">
                 @csrf
                 @method('PUT')
                 <p class="title">Edici&oacute;n del usuario</p>
                 <div class="form-group row">
                     <div class="form group col-md-6">
                         <label for="name">Nombre(s):</label>
-                        <input type="text" placeholder="Ingrese su(s) nombre(s)" name="name" value="{{ $person->name }}">
+                        <input type="text" placeholder="Ingrese su(s) nombre(s)" name="name" value="{{ $user->person->name }}">
                         <i class="fa fa-user"></i>
                     </div>
                
                     <div class="form-group col-md-6">
                         <label for="lastname">Apellido(s):</label>
-                        <input type="text" placeholder="Ingrese su(s) apellido(s)" name="lastname" value="{{$person->lastname }}" >
+                        <input type="text" placeholder="Ingrese su(s) apellido(s)" name="lastname" value="{{$user->person->lastname }}" >
                         <i class="fa fa-user"></i>
                     </div>
                 </div>
@@ -34,12 +34,12 @@
                 <div class="form-group row">
                     <div class="form-group col-md-6">
                         <label for="address">Dirección de residencia:</label>
-                        <input type="text" placeholder="Ingrese la dirección de residencia" name="address" value="{{ $person->address }}">
+                        <input type="text" placeholder="Ingrese la dirección de residencia" name="address" value="{{ $user->person->address }}">
                         <i class="fa fa-home"></i>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telephone">Número telefónico:</label>
-                        <input type="number" placeholder="Ingrese su nro. telefónico" name="telephone" value="{{ $person->telephone }}">
+                        <input type="number" placeholder="Ingrese su nro. telefónico" name="telephone" value="{{ $user->person->telephone }}">
                         <i class="fa fa-phone"></i>
                     </div>
                 </div>
@@ -49,13 +49,13 @@
                         <label for="type_doc">Tipo de documento:</label>
                         <select id="type_doc" class="form-control" name="type_doc">
                             <option selected>Seleccione...</option>
-                            <option {{ ($person->type_doc == 'CC') ? 'selected' : ''}} value="CC">Cédula de ciudadanía</option>
-                            <option {{ ($person->type_doc == 'CE') ? 'selected' : ''}} value="CE">Cédula de extranjería</option>
+                            <option {{ ($user->person->type_doc == 'CC') ? 'selected' : ''}} value="CC">Cédula de ciudadanía</option>
+                            <option {{ ($user->person->type_doc == 'CE') ? 'selected' : ''}} value="CE">Cédula de extranjería</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
                             <label for="num_doc">Número de documento de identidad:</label>
-                            <input type="number" placeholder="Ingrese su nro. de documento" name="num_doc" value="{{ $person->num_doc }}">
+                            <input type="number" placeholder="Ingrese su nro. de documento" name="num_doc" value="{{ $user->person->num_doc }}">
                             <i class="fa fa-sort-numeric-up"></i>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 <div class="form-group row">
                     <div class="form-group col-md-6">
                         <label for="email">Correo electrónico:</label>
-                        <input type="email" placeholder="Ingrese su correo electrónico" name="email" value="{{ $person->email }}">
+                        <input type="email" placeholder="Ingrese su correo electrónico" name="email" value="{{ $user->person->email }}">
                         <i class="fa fa-at"></i>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="form-group row">
                     <div class="form-group col-md-6">
                         <label for="user">Nombre de usuario:</label>
-                        <input type="text" placeholder="Ingrese su nombre de usuario" name="user" value="{{ $person->user->user }}">
+                        <input type="text" placeholder="Ingrese su nombre de usuario" name="user" value="{{ $user->user }}">
                         <i class="fa fa-user"></i>
                     </div>
         
@@ -88,7 +88,7 @@
                         <select id="role_id" class="form-control" name="role_id">
                             <option selected>Seleccione...</option>
                             @foreach($roles as $role)
-                                <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                <option value="{{ $role->id }}" {{ ($role->id === $user->role->id) ? 'selected' : '' }}>{{ $role->name }}</option>
                             @endforeach
                         </select>
                     </div>

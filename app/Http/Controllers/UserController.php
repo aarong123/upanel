@@ -11,8 +11,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $persons = Person::withTrashed()->get();
-        return view('users.index', compact('persons'));
+        $users = User::withTrashed()->get();
+        return view('users.index', compact('users'));
     }
 
     public function create()
@@ -38,8 +38,8 @@ class UserController extends Controller
     public function edit($person)
     {
         $roles = Role::all();
-        $person = Person::withTrashed()->whereId($person)->first();
-        return view('users.edit', compact('person', 'roles'));
+        $user = User::withTrashed()->whereId($person)->first();
+        return view('users.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request, $person)
@@ -55,7 +55,7 @@ class UserController extends Controller
         $person->email = $request->email;
         $person->save();
 
-        $user = User::findOrFail($person->user->id);
+        $user = User::findOrFail($person->id);
         $user->user = $request->user;
         $user->password = $request->password;
         $user->role_id = $request->role_id;
@@ -64,10 +64,12 @@ class UserController extends Controller
         return redirect()->back()->with('success', "La persona $person->name se ha actualizado con éxito.");
     }
 
-    public function deactive(Person $person)
+    public function deactive($person)
     {
-        $person->user()->delete();
+        $person = Person::withTrashed()->whereId($person)->first();
+        $user = $person->user;
         $person->delete();
+        $user->delete();
         return redirect()->back()->with('success', "La persona $person->name se ha desactivado con éxito.");
     }
 

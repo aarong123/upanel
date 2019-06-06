@@ -35,18 +35,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($persons as $person)
+                    @foreach($users as $user)
                         <tr>
-                            <th scope="row">{{ $person->id }}</th>
-                            <td>{{ ($person->deleted_at) ? "Desactivado" : "Activado" }}</td>
-                            <td>{{ $person->name }}</td>
-                            <td>{{ $person->lastname }}</td>
-                            <td>{{ $person->type_doc }}</td>
-                            <td>{{ $person->num_doc }}</td>
-                            <td>{{ $person->telephone }}</td>
-                            <td>{{ $person->email }}</td>
-                            <td>{{ ($person->deleted_at) ? 'Desactivado': $person->user->user }}</td>
-                            <td>{{ ($person->deleted_at) ? 'Desactivado': $person->user->role->name }}</td>
+                            <th scope="row">{{ $user->id }}</th>
+                            <td>{{ (!$user->deleted_at) ? "Activado" : "Desactivado" }}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->person->name : 'Desactivado'}}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->person->lastname : 'Desactivado'}}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->person->type_doc : 'Desactivado'}}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->person->num_doc : 'Desactivado'}}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->person->telephone : 'Desactivado'}}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->person->email : 'Desactivado'}}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->user : 'Desactivado' }}</td>
+                            <td>{{ (!$user->deleted_at) ? $user->role->name : 'Desactivado' }}</td>
                             <td>
                                 <!-- Example single danger button -->
                                 <div class="btn-group">
@@ -55,18 +55,21 @@
                                         Seleccionar opción
                                     </button>
                                     <div class="dropdown-menu">
+                                        @if(!$user->deleted_at)
                                         <a class="dropdown-item"
-                                           href="{{ url('/user/edit/' . $person->id) }}">Editar</a>
-                                        <div class="dropdown-divider"></div>
-                                        @if($person->deleted_at)
-                                            <form method="post" action="{{ url('/user/active/' . $person->id) }}">
+                                           href="{{ url('/user/edit/' . $user->id) }}">Editar
+                                        </a>
+                                            <div class="dropdown-divider"></div>
+                                        @endif
+                                        @if($user->deleted_at)
+                                            <form method="post" action="{{ url('/user/active/' . $user->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="dropdown-item">Activar
                                                 </button>
                                             </form>
-                                        @elseif(Auth::user()->id != $person->id)
-                                            <form method="post" action="{{ url('/user/deactive/' . $person->id) }}">
+                                        @elseif(Auth::user()->id != $user->id)
+                                            <form method="post" action="{{ url('/user/deactive/' . $user->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="dropdown-item">Desactivar
