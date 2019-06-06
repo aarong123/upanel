@@ -24,12 +24,6 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio de venta</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Fecha de expiración</th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -37,13 +31,8 @@
                     @foreach($entries as $entry)
                         <tr>
                             <th scope="row">{{ $entry->id }}</th>
-                            <th scope="row">{{ $entry->provider_id }}</th>
-                            <th scope="row">{{ $entry->user_id }}</th>
-                            <th scope="row">{{ $entry->type_voucher }}</th>
-                            <th scope="row">{{ $entry->series_voucher }}</th>
-                            <th scope="row">{{ $entry->num_voucher }}</th>
-                            <th scope="row">{{ $entry->tax }}</th>
-                            <th scope="row">{{ $entry->total }}</th>
+                            <th scope="row">{{ $entry->state }}</th>
+
 
                             <td>
                                 <div class="btn-group">

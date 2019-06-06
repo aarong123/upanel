@@ -96,7 +96,7 @@
 
         @endif
         <div class="links">
-            <a href="https://laravel.com/docs">Dashboard</a>
+            <a href="{{ url('dashboardView') }}">Dashboard</a>
             <a href="{{ url('category') }}">Categorías</a>
             <a href="{{ url('item') }}">Productos</a>
             <a href="https://blog.laravel.com">Ventas</a>
