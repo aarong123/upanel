@@ -29,7 +29,7 @@ class ClientController extends Controller
             'telephone' => $request->telephone_contact,
             'email' => $request->contact,
         ]);
-        return redirect()->back()->with('success', "El cliente $client->name ha sido creado");
+        return redirect()->back()->with('success', "El cliente $client->name se ha creado con éxito.");
 
     }
 
@@ -53,7 +53,7 @@ class ClientController extends Controller
         $client->email = $request->email;
         $client->save();
 
-        return redirect()->back()->with('success', "El cliente $client->name ha sido creado");
+        return redirect()->back()->with('success', "El cliente $client->name se ha actualizado con éxito.");
     }
 
     public function deactive($client)
@@ -61,7 +61,7 @@ class ClientController extends Controller
         $client = Person::withTrashed()->whereId($client)->first();
         $client->delete();
 
-        return redirect()->back()->with('success', "El cliente $client->name ha sido creado");
+        return redirect()->back()->with('success', "El cliente $client->name se ha desactivado con éxito.");
 
     }
 
@@ -69,6 +69,6 @@ class ClientController extends Controller
     {
         $client = Person::withTrashed()->whereId($client)->first();
         $client->restore();
-        return redirect()->back()->with('success', "El cliente $client->name ha sido creado");
+        return redirect()->back()->with('success', "El cliente $client->name se ha activado con éxito.");
     }
 }
