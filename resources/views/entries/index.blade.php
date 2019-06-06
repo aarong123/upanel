@@ -18,7 +18,7 @@
             <div class="card-header">
                 Listado de todos los de ventas
             </div>
-            <div class="card-body" style="width:1070px;">
+            <div class="card-body" style="margin: 0 auto;">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                     <thead>
                     <tr>
@@ -33,7 +33,6 @@
                             <th scope="row">{{ $entry->id }}</th>
                             <th scope="row">{{ $entry->state }}</th>
 
-
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
@@ -44,7 +43,7 @@
                                         <form method="post" action="{{ url('/entry/deactive/' . $entry->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-entry">Desactivar
+                                            <button type="submit" class="dropdown-item">Anular compra
                                             </button>
                                         </form>
                                     </div>
