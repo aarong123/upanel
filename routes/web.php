@@ -19,6 +19,9 @@ Route::group(['middleware' => ['guest']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('/dashboard', 'DashboardController');
+    Route::get('/dashboardView', 'DashboardController@view');
+    Route::get('/itemsNotification', 'DashboardController@itemsNotification');
     Route::get('/main', function () {
         return view('welcome');
     })->name('main');

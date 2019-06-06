@@ -22,7 +22,7 @@ class CategoryController extends Controller
     {
         $category = Category::create($request->all());
 
-        return redirect()->back()->with('success', "La categoría $category->name se ha creado con exito");
+        return redirect()->back()->with('success', "La categoría $category->name se ha registrado con éxito.");
     }
 
     public function edit($category)

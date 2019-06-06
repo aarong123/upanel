@@ -16,20 +16,14 @@
 
         <div class="card">
             <div class="card-header">
-                Listado de todos los de ventas
+                Listado de compras
             </div>
-            <div class="card-body" style="width:1070px;">
+            <div class="card-body" style="margin: 0 auto;">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Código</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio de venta</th>
-                        <th scope="col">Stock</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Fecha de expiración</th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -37,14 +31,7 @@
                     @foreach($entries as $entry)
                         <tr>
                             <th scope="row">{{ $entry->id }}</th>
-                            <th scope="row">{{ $entry->provider_id }}</th>
-                            <th scope="row">{{ $entry->user_id }}</th>
-                            <th scope="row">{{ $entry->type_voucher }}</th>
-                            <th scope="row">{{ $entry->series_voucher }}</th>
-                            <th scope="row">{{ $entry->num_voucher }}</th>
-                            <th scope="row">{{ $entry->tax }}</th>
-                            <th scope="row">{{ $entry->total }}</th>
-
+                            <td>{{ $entry->state }}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
@@ -55,7 +42,7 @@
                                         <form method="post" action="{{ url('/entry/deactive/' . $entry->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-entry">Desactivar
+                                        <div style="text-align: center"></div><button type="submit" class="dropdown-item">Anular compra</div>
                                             </button>
                                         </form>
                                     </div>
@@ -67,7 +54,7 @@
                 </table>
                 <br>
                 <div style="text-align:center; margin: 0 auto;">
-                    <a href="{{ url('entry/create') }}" class="btn btn-primary">Registrar un nueva compra</a>
+                    <a href="{{ url('entry/create') }}" class="btn btn-primary">Registrar una nueva compra</a>
                 </div>
             </div>
         </div>

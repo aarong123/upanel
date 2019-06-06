@@ -14,7 +14,7 @@
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url('client/register') }}">
             @csrf
-            <p class="title">Registro de usuario</p>
+            <p class="title">Registro de cliente</p>
             <div class="form-group row">
                 <div class="form group col-md-6">
                     <label for="name">Nombre(s):</label>
@@ -69,7 +69,7 @@
             <div style="text-align:center; padding:40px 0px 0px 0px;">
                 <button type="submit" class="btn btn-primary">
                     <i class="spinner"></i>
-                    Registrar usuario
+                    Registrar cliente
                 </button>
             </div>
         </form>

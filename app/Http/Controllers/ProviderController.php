@@ -36,7 +36,7 @@ class ProviderController extends Controller
             'contact' => $request->contact,
             'telephone_contact' => $request->telephone_contact,
         ]);
-        return redirect()->back()->with('success', "El proveedor $person->name se ha creado con éxito.");
+        return redirect()->back()->with('success', "El proveedor $person->name se ha registrado con éxito.");
 
     }
 

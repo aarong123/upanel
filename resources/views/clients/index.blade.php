@@ -15,7 +15,7 @@
     <div class="container" style="width:1100px;padding:0px 30px 0px 0px">
         <div class="card">
             <div class="card-header">
-                Lisatdo de usuarios
+                Listado de clientes
             </div>
             <div class="card-body" style="width:1070px;">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
@@ -23,13 +23,12 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
+                        <th scope="col">Nombre(s)</th>
+                        <th scope="col">Apellido(s)</th>
                         <th scope="col">Tipo de documento</th>
                         <th scope="col">Número de documento</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Correo</th>
-
+                        <th scope="col">Número telefónico</th>
+                        <th scope="col">Correo electrónico</th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -52,34 +51,35 @@
                                         Seleccionar opción
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item"
-                                           href="{{ url('/client/edit/' . $client->id) }}">Editar</a>
+                                        <div style="text-align: center"><a class="dropdown-item"
+                                           href="{{ url('/client/edit/' . $client->id) }}">Editar</a></div>
                                         <div class="dropdown-divider"></div>
                                         @if($client->deleted_at)
                                             <form method="post" action="{{ url('/client/active/' . $client->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item">Activar
+                                                <div style="text-align: center"><button type="submit" class="dropdown-item">Activar</div>
                                                 </button>
                                             </form>
                                         @elseif(Auth::user()->id != $client->id)
                                             <form method="post" action="{{ url('/client/deactive/' . $client->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item">Desactivar
+                                                <div style="text-align: center"><button type="submit" class="dropdown-item">Desactivar</div>
                                                 </button>
                                             </form>
                                         @else
-                                            no puedes desactivarte a ti mismo.
+                                        <div style="text-align: center">No puedes desactivarte a ti mismo.</div>
                                         @endif
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
+                    </tbody>
                 </table>
                 <div style="text-align:center; margin: 0 auto;">
-                    <a href="{{ url('client/create') }}" class="btn btn-primary">Registrar un nuevo usuario</a>
+                    <a href="{{ url('client/create') }}" class="btn btn-primary">Registrar un nuevo cliente</a>
                 </div>
             </div>
         </div>
@@ -90,6 +90,4 @@
         <a href="{{ url('/main') }}" class="btn btn-primary">Ir al men&uacute; principal</a>
     </div>
     <br>
-
-
 @stop

@@ -83,9 +83,7 @@
     @endif
 
     <div class="content">
-        <div class="title m-b-md">
-            UPanel
-        </div>
+        <div class="title m-b-md">UPanel</div>
         @if (session()->has('unauthorized'))
 
             <div class="alert alert-success" role="alert">
@@ -96,7 +94,7 @@
 
         @endif
         <div class="links">
-            <a href="https://laravel.com/docs">Dashboard</a>
+            <a href="{{ url('dashboardView') }}">Dashboard</a>
             <a href="{{ url('category') }}">Categorías</a>
             <a href="{{ url('item') }}">Productos</a>
             <a href="{{ url('sale') }}">Ventas</a>
