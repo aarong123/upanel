@@ -32,7 +32,7 @@ class UserController extends Controller
             'password' => $request->password,
         ]);
 
-        return redirect()->back()->with('success', "La persona $person->name se ha creado con exito");
+        return redirect()->back()->with('success', "La persona $person->name se ha registrado con exito");
     }
 
     public function edit($person)

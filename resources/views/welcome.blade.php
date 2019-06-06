@@ -83,9 +83,7 @@
     @endif
 
     <div class="content">
-        <div class="title m-b-md">
-            UPanel
-        </div>
+        <div class="title m-b-md">UPanel</div>
         @if (session()->has('unauthorized'))
 
             <div class="alert alert-success" role="alert">

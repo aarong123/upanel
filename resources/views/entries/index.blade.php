@@ -42,7 +42,7 @@
                                         <form method="post" action="{{ url('/entry/deactive/' . $entry->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-item">Anular compra
+                                        <div style="text-align: center"></div><button type="submit" class="dropdown-item">Anular compra</div>
                                             </button>
                                         </form>
                                     </div>

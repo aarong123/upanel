@@ -60,22 +60,21 @@
                                     Seleccionar opción
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item"
-                                       href="{{ url('/category/edit/' . $category->id) }}">Editar</a>
+                                    <div style="text-align: center"><a class="dropdown-item"
+                                       href="{{ url('/category/edit/' . $category->id) }}">Editar</a></div>
                                     <div class="dropdown-divider"></div>
                                     @if($category->deleted_at)
-
                                         <form method="post" action="{{ url('/category/active/' . $category->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-item">Activar
+                                            <div style="text-align: center"><button type="submit" class="dropdown-item">Activar</div>
                                             </button>
                                         </form>
                                     @else
                                         <form method="post" action="{{ url('/category/deactive/' . $category->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-item">Desactivar
+                                            <div style="text-align: center"><button type="submit" class="dropdown-item">Desactivar</div>
                                             </button>
                                         </form>
                                     @endif
@@ -84,6 +83,7 @@
                         </td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </div>

@@ -16,7 +16,7 @@
 
         <div class="card">
             <div class="card-header">
-                Listado de todos los productos
+                Listado de proveedores
             </div>
             <div class="card-body" style="width:1070px;">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
@@ -49,20 +49,20 @@
                                         Seleccionar opción
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ url('/provider/edit/' . $provider->id) }}">Editar</a>
+                                        <div style="text-align: center"><a class="dropdown-item" href="{{ url('/provider/edit/' . $provider->id) }}">Editar</a></div>
                                         <div class="dropdown-divider"></div>
                                         @if($provider->deleted_at)
                                             <form method="post" action="{{ url('/provider/active/' . $provider->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item">Activar
+                                                <div style="text-align: center"><button type="submit" class="dropdown-item">Activar</div>
                                                 </button>
                                             </form>
                                         @else
                                             <form method="post" action="{{ url('/provider/deactive/' . $provider->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item">Desactivar
+                                                <div style="text-align: center"><button type="submit" class="dropdown-item">Desactivar</div>
                                                 </button>
                                             </form>
                                         @endif

@@ -49,7 +49,7 @@ class EntryController extends Controller
             'price' => $request->price,
             'quantity' => $quantity,
         ]);
-        return redirect()->back()->with('success', "La compra ha sido creada con éxito.");
+        return redirect()->back()->with('success', "La compra se ha registrado con éxito.");
 
     }
 
@@ -58,7 +58,7 @@ class EntryController extends Controller
         $entry = Entry::findOrFail($entry);
         $entry->state = 'Anulada';
         $entry->save();
-        return redirect()->back()->with('success', "La compra ha sido anulada con éxito.");
+        return redirect()->back()->with('success', "La compra se ha anulado con éxito.");
 
     }
 }

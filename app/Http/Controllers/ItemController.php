@@ -26,7 +26,7 @@ class ItemController extends Controller
     {
         $item = Item::create($request->all());
 
-        return redirect()->back()->with('success', "El artículo $item->name se ha creado con exito");
+        return redirect()->back()->with('success', "El artículo $item->name se ha registrado con exito");
 
     }
 

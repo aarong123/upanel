@@ -29,7 +29,7 @@ class ClientController extends Controller
             'telephone' => $request->telephone_contact,
             'email' => $request->contact,
         ]);
-        return redirect()->back()->with('success', "El cliente $client->name se ha creado con éxito.");
+        return redirect()->back()->with('success', "El cliente $client->name se ha registrado con éxito.");
 
     }
 

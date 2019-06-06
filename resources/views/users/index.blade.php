@@ -56,33 +56,33 @@
                                     </button>
                                     <div class="dropdown-menu">
                                         @if(!$user->deleted_at)
-                                        <a class="dropdown-item"
-                                           href="{{ url('/user/edit/' . $user->id) }}">Editar
-                                        </a>
+                                        <div style="text-align: center"><a class="dropdown-item"
+                                           href="{{ url('/user/edit/' . $user->id) }}">Editar</a></div>
                                             <div class="dropdown-divider"></div>
                                         @endif
                                         @if($user->deleted_at)
                                             <form method="post" action="{{ url('/user/active/' . $user->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item">Activar
+                                                <div style="text-align: center"><button type="submit" class="dropdown-item">Activar</div>
                                                 </button>
                                             </form>
                                         @elseif(Auth::user()->id != $user->id)
                                             <form method="post" action="{{ url('/user/deactive/' . $user->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="dropdown-item">Desactivar
+                                                <div style="text-align: center"><button type="submit" class="dropdown-item">Desactivar</div>
                                                 </button>
                                             </form>
                                         @else
-                                            no puedes desactivarte a ti mismo.
+                                        <div style="text-align: center">No puedes desactivarte a ti mismo.</div>
                                         @endif
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
+                    </tbody>
                 </table>
                 <div style="text-align:center; margin: 0 auto;">
                     <a href="{{ url('user/create') }}" class="btn btn-primary">Registrar un nuevo usuario</a>

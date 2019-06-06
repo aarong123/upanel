@@ -48,6 +48,7 @@
                 <label class="col-md-3 form-control-label">Cantidad (*)</label>
                 <div class="col-md-6">
                     <input type="number" placeholder="Ingrese la cantidad" name="quantity">
+                    <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>
 
@@ -55,6 +56,7 @@
                 <label class="col-md-3 form-control-label">Precio (*)</label>
                 <div class="col-md-6">
                     <input type="number" placeholder="Ingrese el precio" name="price">
+                    <i class="fa fa-dollar-sign"></i>
                 </div>
             </div>
             <div style="text-align:center; padding:40px 0px 0px 0px;">

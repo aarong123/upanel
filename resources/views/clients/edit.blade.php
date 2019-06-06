@@ -16,18 +16,18 @@
             <form class="formulario1" method="post" action="{{ url('client/update/' . $client->id) }}">
                 @csrf
                 @method('PUT')
-                <p class="title">Edici&oacute;n del usuario</p>
+                <p class="title">Edici&oacute;n del cliente</p>
                 <div class="form-group row">
                     <div class="form group col-md-6">
                         <label for="name">Nombre(s):</label>
                         <input type="text" placeholder="Ingrese su(s) nombre(s)" name="name" value="{{ $client->name }}">
-                        <i class="fa fa-client"></i>
+                        <i class="fa fa-user-tie"></i>
                     </div>
                
                     <div class="form-group col-md-6">
                         <label for="lastname">Apellido(s):</label>
                         <input type="text" placeholder="Ingrese su(s) apellido(s)" name="lastname" value="{{$client->lastname }}" >
-                        <i class="fa fa-client"></i>
+                        <i class="fa fa-user-tie"></i>
                     </div>
                 </div>
         
@@ -71,7 +71,7 @@
                 <div style="text-align:center; padding:40px 0px 0px 0px;">
                     <button type="submit" class="btn btn-primary">
                         <i class="spinner"></i>
-                        Editar usuario
+                        Editar cliente
                     </button>
                 </div>
             </form>
