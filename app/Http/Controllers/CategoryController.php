@@ -4,6 +4,8 @@ namespace Upanel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Upanel\Category;
+use Upanel\Http\Requests\CategoryStoreRequest;
+use Upanel\Http\Requests\CategoryUpdateRequest;
 
 class CategoryController extends Controller
 {
@@ -18,7 +20,7 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
         $category = Category::create($request->all());
 
@@ -31,7 +33,7 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category'));
     }
 
-    public function update(Request $request, $category)
+    public function update(CategoryUpdateRequest $request, $category)
     {
         $category = Category::withTrashed()->whereId($category)->first();
 

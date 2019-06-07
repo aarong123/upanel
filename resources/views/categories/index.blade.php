@@ -12,6 +12,12 @@
 
     @endif
 
+    @foreach ($errors->all() as $message)
+        {{ $message }}
+    @endforeach
+
+
+
     <div class="wrapper">
         <form class="formulario" method="post" action="{{ url('category/register') }}">
             @csrf
