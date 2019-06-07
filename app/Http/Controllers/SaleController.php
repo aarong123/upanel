@@ -31,10 +31,13 @@ class SaleController extends Controller
 
     public function store(Request $request)
     {
-        //$quantity = $request->quantity;
-        //$price = $request->price;
-        //$discount = $request->discount;
-        //$subTotal = $quantity * $price;
+        $quantity = $request->quantity;
+        $price = $request->price;
+        $discount = $request->discount;
+        $subTotal = $quantity * $price;
+        $subdiscount = $subTotal*($discount/100);
+        $endTotal=$subTotal-$subdiscount;
+
         //$tax = $subTotal * 0.19;
         $sale = Sale::create([
             'id_client' => $request->id_client,
@@ -43,7 +46,7 @@ class SaleController extends Controller
             'series_voucher' => 1,            
             'num_voucher' => 1,
             'tax' => 0,
-            'total' => 0,
+            'total' => $endTotal,
             'state' => 1,
         ]);
 
