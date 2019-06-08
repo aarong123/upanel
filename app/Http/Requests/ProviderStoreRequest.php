@@ -60,8 +60,8 @@ class ProviderStoreRequest extends FormRequest
 
 
 
-            'email.required' => 'El campo email no puede ser vacio',
-            'email.required' => 'tiene que ser email'
+            'email.email' => 'El campo email no puede ser vacio',
+            'email.email' => 'tiene que ser email'
             
         ];
 }
