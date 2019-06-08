@@ -1,8 +1,30 @@
 <template>
     <ul class = "text-center">
-        <li v-for="itemsNotification in itemsNotifications">
+        <li v-for="itemsNotificationStock in itemsNotificationsStock">
             <div class="text-dark">
-                <p style= "font-size:16px;"><i class="fas fa-exclamation-triangle"></i> El producto <strong>{{ itemsNotification.name }}</strong>  tiene un stock de <strong>{{ itemsNotification.stock }}</strong> y caduca <strong>{{ defaultFormat(itemsNotification.expiration_date) }}</strong> <i class="fas fa-exclamation-triangle"></i></p>
+                <p style= "font-size:16px;">
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                    El producto <strong>{{ itemsNotificationStock.name }}</strong>  tiene poco stock: <strong>{{ itemsNotificationStock.stock }}</strong> y tiene un umbral de alerta de {{ itemsNotificationStock.stock_threshold }}
+                    <i class="fas fa-exclamation-triangle"></i>
+                </p>
+<!--
+                <p style= "font-size:16px;"><i class="fas fa-exclamation-triangle"></i> El producto <strong>{{ itemsNotificationStock.name }}</strong> caduca <strong>{{ defaultFormat(itemsNotification.expiration_date) }}</strong>  <i class="fas fa-exclamation-triangle"></i></p>
+-->
+            </div>
+        </li>
+
+        <li v-for="itemsNotificationExpirationDate in itemsNotificationsExpirationDate">
+            <div class="text-dark">
+                <p style= "font-size:16px;">
+                    <i class="fas fa-exclamation-triangle"></i>
+
+                    El producto <strong>{{ itemsNotificationExpirationDate.name }}</strong>  est&aacute; a punto de vencer: <strong>{{ itemsNotificationExpirationDate.expiration_date }}</strong> y tiene un umbral de alerta de {{ itemsNotificationExpirationDate.expiration_threshold }}
+                    <i class="fas fa-exclamation-triangle"></i>
+                </p>
+<!--
+                <p style= "font-size:16px;"><i class="fas fa-exclamation-triangle"></i> El producto <strong>{{ itemsNotificationStock.name }}</strong> caduca <strong>{{ defaultFormat(itemsNotification.expiration_date) }}</strong>  <i class="fas fa-exclamation-triangle"></i></p>
+-->
             </div>
         </li>
     </ul>
@@ -13,21 +35,19 @@
     export default {
         data() {
             return {
-                itemsNotifications: [],
+                itemsNotificationsStock: [],
+                itemsNotificationsExpirationDate: [],
             }
         },
 
         methods: {
-            defaultFormat(date) {
-                return moment(date).format('DD-MM-YYYY');
-            },
-
             getItemsNotifications() {
                 let me = this;
                 let url = '/itemsNotification';
                 axios.get(url).then(function (response) {
                     let res = response.data;
-                    me.itemsNotifications = res.itemsNotifications;
+                    me.itemsNotificationsStock = res.itemsNotificationsStock;
+                    me.itemsNotificationsExpirationDate = res.itemsNotificationsExpirationDate;
                 })
             }
         },

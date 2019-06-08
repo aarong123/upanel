@@ -10,16 +10,16 @@
                         <div class="col-md-6" style="text-align: center">
                             <div class="card card-chart" style="margin: 0 auto;">
                                 <div class="card-header">
-                                <h5><b>Compras</b></h5>
+                                    <h5><b>Compras</b></h5>
                                 </div>
-                                
+
                                 <div class="card-content">
                                     <div class="ct-chart">
                                         <canvas id="entries">
                                         </canvas>
                                     </div>
                                 </div>
-                                <div class="card-footer" style= "font-size:16px;">
+                                <div class="card-footer" style="font-size:16px;">
                                     <p>Compras de los últimos meses.</p>
                                 </div>
                             </div>
@@ -35,7 +35,7 @@
                                         </canvas>
                                     </div>
                                 </div>
-                                <div class="card-footer" style= "font-size:16px;">
+                                <div class="card-footer" style="font-size:16px;">
                                     <p>Ventas de los últimos meses.</p>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                     <h5><b>Balance de compras y ventas</b></h5>
                 </div>
                 <div class="car-body">
-                    <div class="text-center" style= "font-size:16px;">
+                    <div class="text-center" style="font-size:16px;">
                         <balance-component></balance-component>
                     </div>
                 </div>
@@ -59,32 +59,15 @@
                     <h5><b>Análisis de productos</b></h5>
                 </div>
                 <div class="car-body">
-                    <p class="text-center" style= "font-size:16px;">
-                    Atenci&oacute;n, los siguientes productos son alertas que se generaron por la configuraci&oacute;n de 
-                    <strong>umbral de stock </strong> y <strong>umbral de fecha de vencimiento</strong>:
-                    </p>
-                      <!--<ul class="text-center">
-                        <li>
-                            <strong>Umbral de stock </strong>
-                        </li>
-
-                      <li>
-                            <strong>Umbral de ventas </strong>
-
-                        </li>
-                        <li>
-                            <strong>Umbral de fecha de vencimiento </strong>
-                        </li>
-                    </ul>-->
                 </div>
                 <div class="card bg-warning">
-                 <div class="card-header">
-                    <analysis-products></analysis-products>
-                 </div>
+                    <div class="card-header">
+                        <analysis-products></analysis-products>
+                    </div>
                 </div>
             </div>
             <br>
-            <div style="margin: 0 auto; width:1100px;"> 
+            <div style="margin: 0 auto; width:1100px;">
                 <a href="/main" class="btn btn-primary">Ir al men&uacute; principal</a>
             </div>
             <br>

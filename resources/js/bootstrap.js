@@ -45,7 +45,7 @@ if (token) {
  * allows your team to easily build robust real-time web applications.
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#table').DataTable({
         language: {
             "decimal": "",
@@ -68,7 +68,7 @@ $(document).ready(function() {
             }
         },
     });
-} );
+});
 
 // import Echo from 'laravel-echo'
 
