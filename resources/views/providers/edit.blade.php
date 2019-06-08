@@ -10,7 +10,10 @@
             </strong>
         </div>
     @endif
-
+   
+    @foreach ($errors->all() as $message)
+    {{ $message }}
+@endforeach
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url("provider/update/$provider->id") }}">
             @csrf

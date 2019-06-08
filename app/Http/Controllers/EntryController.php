@@ -10,6 +10,8 @@ use Upanel\Entry;
 use Upanel\Item;
 use Upanel\Person;
 use Upanel\Provider;
+use Upanel\Http\Requests\EntryStoeRequest;
+use Upanel\Http\Requests\EntryStoreRequest;
 
 class EntryController extends Controller
 {
@@ -26,7 +28,7 @@ class EntryController extends Controller
         return view('entries.create', compact('items', 'providers'));
     }
 
-    public function store(Request $request)
+    public function store(EntryStoreRequest $request)
     {
         $quantity = $request->quantity;
         $price = $request->price;
