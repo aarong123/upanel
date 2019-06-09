@@ -38,13 +38,14 @@ class ClientUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'El campo nombre no puede ser vacio',
-            'lastname.required' => 'El campo apellido no puede ser vacio',
-            'type_doc.required' => 'El campo tipo de documento no puede ser vacio',
-            'num_doc.required' => 'El campo numero de documento no puede ser vacio',
-            'address.required' => 'El campo direccion no puede ser vacio',
-            'telephone.required' => 'El campo telefono no puede ser vacio',
-            'email.required' => 'El campo correo no puede ser vacio'
+
+            'name.required' => 'El campo "Nombre" no puede estar vacío.',
+            'lastname.required' => 'El campo "Apellido" no puede estar vacío.',
+            'type_doc.not_in' => 'El campo "Tipo de documento" no puede estar vacío.',
+            'num_doc.required' => 'El campo "Número de documento de identidad" no puede estar vacío.',
+            'address.required' => 'El campo "Dirección de residencia" no puede estar vacío.',
+            'telephone.required' => 'El campo "Número telefónico" no puede estar vacío.',
+            'email.required' => 'El campo "Correo electrónico" no puede estar vacío.'
             
         ];
     }

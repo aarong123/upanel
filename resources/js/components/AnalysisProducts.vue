@@ -1,7 +1,7 @@
 <template>
     <ul class = "text-center">
         <li v-for="itemsNotificationStock in itemsNotificationsStock">
-            <div class="text-dark">
+            <div class="text-dark" style = "color: black">
                 <p style= "font-size:16px;">
                     <i class="fas fa-exclamation-triangle"></i>
 
@@ -15,7 +15,7 @@
         </li>
 
         <li v-for="itemsNotificationExpirationDate in itemsNotificationsExpirationDate">
-            <div class="text-dark">
+            <div class="text-dark" style = "color: black">
                 <p style= "font-size:16px;">
                     <i class="fas fa-exclamation-triangle"></i>
 

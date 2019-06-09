@@ -86,7 +86,7 @@
         <div class="title m-b-md">UPanel</div>
         @if (session()->has('unauthorized'))
 
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-warning" role="alert">
                 <strong>
                     {{ session()->get('unauthorized') }}
                 </strong>

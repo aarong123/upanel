@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style = "color: black">
         <div>
             {{ varTotalEntry - varTotalSale }}
         </div>
