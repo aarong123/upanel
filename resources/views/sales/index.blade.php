@@ -22,7 +22,7 @@
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>                       
+                        <th scope="col">#</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Usuario</th>
@@ -30,23 +30,23 @@
                         <th scope="col">Serie de comprobante</th>
                         <th scope="col">Número de comprobante</th>
                         <th scope="col">Impuesto</th>
-                        <th scope="col">Total</th>         
+                        <th scope="col">Total</th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($sales as $sale)
-                    
+
                         <tr>
                             <th scope="row">{{ $sale->id }}</th>
                             <td>{{ $sale->state }}</td>
-                            <td>{{ $sale->person->name }}</td>
+                            <td>{{ ($sale->person) ? $sale->person->name : "Desactivado" }}</td>
                             <td>{{ $sale->user->user }}</td>
                             <td>{{ $sale->type_voucher }}</td>
                             <td>{{ $sale->series_voucher }}</td>
                             <td>{{ $sale->num_voucher }}</td>
                             <td>{{ $sale->tax }}</td>
-                            <td>{{ $sale->total }}</td>                            
+                            <td>{{ $sale->total }}</td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
@@ -57,25 +57,27 @@
                                         <form method="post" action="{{ url('/sale/deactive/' . $sale->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <div style="text-align: center"><button type="submit" class="dropdown-item">Anular venta</div>
+                                            <div style="text-align: center">
+                                                <button type="submit" class="dropdown-item">Anular venta</button>
+                                            </div>
                                             </button>
                                         </form>
                                     </div>
                                 </div>
-                            </td>                            
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
                 <br>
-            <div style="text-align:center; margin: 0 auto;"> 
-            <a href="{{ url('sale/create') }}" class="btn btn-primary">Registrar una nueva venta</a>
-            </div>
+                <div style="text-align:center; margin: 0 auto;">
+                    <a href="{{ url('sale/create') }}" class="btn btn-primary">Registrar una nueva venta</a>
+                </div>
             </div>
         </div>
     </div>
     <br>
-    <div style="margin: 0 auto; width:1100px;"> 
+    <div style="margin: 0 auto; width:1100px;">
         <a href="{{ url('/main') }}" class="btn btn-primary">Ir al men&uacute; principal</a>
     </div>
     <br>

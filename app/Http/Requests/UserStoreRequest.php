@@ -33,6 +33,7 @@ class UserStoreRequest extends FormRequest
 
         ];
     }
+
     public function messages()
     {
         return [

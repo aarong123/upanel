@@ -32,18 +32,16 @@ class ProviderStoreRequest extends FormRequest
             'contact' => 'required|email'
         ];
     }
+
     public function messages()
     {
         return [
             'name.required' => 'El campo nombre no puede ser vacio',
             'name.min' => 'minimo puede ser 4 caracteres',
             'name.max' => 'maximo puede ser 10 caracteres',
-                  
-           
 
 
             'type_doc.not_in' => 'El campo tipo de documento no puede ser vacio',
- 
 
 
             'num_doc.required' => 'El campo numero de documento no puede ser vacio',
@@ -59,10 +57,9 @@ class ProviderStoreRequest extends FormRequest
             'telephone_contact.max' => 'El campo telefono maximo puede ser 10 caracteres',
 
 
-
             'contact.required' => 'El campo email no puede ser vacio',
             'contact.email' => 'El campo tiene que ser un correo electronico valido'
-            
+
         ];
-}
+    }
 }

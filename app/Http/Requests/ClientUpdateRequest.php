@@ -23,7 +23,6 @@ class ClientUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $client = $this->route('client');
         return [
             'name' => 'required',
             'lastname' => 'required',
@@ -45,7 +44,7 @@ class ClientUpdateRequest extends FormRequest
             'address.required' => 'El campo "Dirección de residencia" no puede estar vacío.',
             'telephone.required' => 'El campo "Número telefónico" no puede estar vacío.',
             'email.required' => 'El campo "Correo electrónico" no puede estar vacío.'
-            
+
         ];
     }
 }

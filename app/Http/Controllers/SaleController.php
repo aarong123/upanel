@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Upanel\CheckEntry;
 use Upanel\CheckSale;
 use Upanel\Entry;
+use Upanel\Http\Requests\SaleStoreRequest;
 use Upanel\Item;
 use Upanel\Sale;
 use Upanel\Person;
