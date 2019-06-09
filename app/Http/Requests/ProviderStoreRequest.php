@@ -24,11 +24,11 @@ class ProviderStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|min:4|max:10',
             'type_doc' => 'not_in:0',
-            'num_doc' => 'required',
-            'address' => 'required',
-            'telephone_contact' => 'required',
+            'num_doc' => 'required|min:8|max:10',
+            'address' => 'required|min:8|max:50',
+            'telephone_contact' => 'required|min:4|max:20',
             'contact' => 'required|email'
         ];
     }
@@ -36,7 +36,7 @@ class ProviderStoreRequest extends FormRequest
     {
         return [
             'name.required' => 'El campo nombre no puede ser vacio',
-            'name.min' => 'minimo puede ser 6 caracteres',
+            'name.min' => 'minimo puede ser 4 caracteres',
             'name.max' => 'maximo puede ser 10 caracteres',
                   
            
@@ -47,21 +47,21 @@ class ProviderStoreRequest extends FormRequest
 
 
             'num_doc.required' => 'El campo numero de documento no puede ser vacio',
-            'num_doc.min' => 'El campo numero de documento minimo puede ser 6 caracteres',
+            'num_doc.min' => 'El campo numero de documento minimo puede ser 8 caracteres',
             'num_doc.max' => 'El campo numero de documento maximo puede ser 10 caracteres',
 
             'address.required' => 'El campo direccion no puede ser vacio',
-            'address.min' => 'El campo direccion minimo puede ser 6 caracteres',
-            'address.max' => 'El campo direccion maximo puede ser 10 caracteres',
+            'address.min' => 'El campo direccion minimo puede ser 8 caracteres',
+            'address.max' => 'El campo direccion maximo puede ser 50 caracteres',
 
             'telephone_contact.required' => 'El campo telefono no puede ser vacio',
-            'telephone_contact.min' => 'El campo telefono minimo puede ser 10 caracteres',
-            'telephone_contact.max' => 'El campo telefono maximo puede ser 20 caracteres',
+            'telephone_contact.min' => 'El campo telefono minimo puede ser 4 caracteres',
+            'telephone_contact.max' => 'El campo telefono maximo puede ser 10 caracteres',
 
 
 
-            'email.email' => 'El campo email no puede ser vacio',
-            'email.email' => 'tiene que ser email'
+            'contact.required' => 'El campo email no puede ser vacio',
+            'contact.email' => 'El campo tiene que ser un correo electronico valido'
             
         ];
 }

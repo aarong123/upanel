@@ -26,12 +26,12 @@ class ClientStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:6|max:200',
-            'lastname' => 'required',
+            'name' => 'required|min:4|max:20',
+            'lastname' => 'required|min:4|max:20',
             'type_doc' => 'not_in:0',
             'num_doc' => 'required|min:6|max:200',
             'address' => 'required|min:6|max:200',
-            'telephone' => 'required|min:6|max:200',
+            'telephone' => 'required|min:7|max:10',
             'email' => 'required|email'
            
 
@@ -42,11 +42,12 @@ class ClientStoreRequest extends FormRequest
     {
         return [
             'name.required' => 'El campo nombre no puede ser vacio',
-            'name.min' => 'minimo puede ser 6 caracteres',
-            'name.max' => 'maximo puede ser 10 caracteres',
+            'name.min' => ' nombre minimo puede ser 2 caracteres',
+            'name.max' => 'nombre maximo puede ser 20 caracteres',
                   
-            'lastname.required' => 'El campo apeliido no puede ser vacio',
-            
+            'lastname.required' => 'El campo apellido no puede ser vacio',
+            'lastname.min' => ' nombre minimo puede ser 2 caracteres',
+            'lastname.max' => 'nombre maximo puede ser 20 caracteres',
 
 
             'type_doc.not_in' => 'El campo tipo de documento no puede ser vacio',
@@ -66,7 +67,7 @@ class ClientStoreRequest extends FormRequest
             'telephone.max' => 'El campo telefono maximo puede ser 20 caracteres',
 
             'email.required' => 'El campo email no puede ser vacio',
-            'email.required' => 'tiene que ser email'
+            'email.email' => 'El campo correo tiene que ser un correo electronico valido'
             
         ];
 }

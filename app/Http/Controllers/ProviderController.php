@@ -49,7 +49,7 @@ class ProviderController extends Controller
 
     }
 
-    public function update(Request $request, $provider)
+    public function update(ProviderUpdateRequest $request, $provider)
     {
         $provider = Provider::withTrashed()->whereId($provider)->first();
         $person = $provider->person;

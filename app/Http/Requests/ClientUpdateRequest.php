@@ -31,7 +31,7 @@ class ClientUpdateRequest extends FormRequest
             'num_doc' => 'required',
             'address' => 'required',
             'telephone' => 'required',
-            'email' => 'required'
+            'email' => 'required|email'
         ];
     }
 
@@ -44,7 +44,8 @@ class ClientUpdateRequest extends FormRequest
             'num_doc.required' => 'El campo numero de documento no puede ser vacio',
             'address.required' => 'El campo direccion no puede ser vacio',
             'telephone.required' => 'El campo telefono no puede ser vacio',
-            'email.required' => 'El campo correo no puede ser vacio'
+            'email.required' => 'El campo correo no puede ser vacio',
+            'email.email' => 'El campo correo tiene que ser un correo electronico valido'
             
         ];
     }
