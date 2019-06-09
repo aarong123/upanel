@@ -23,7 +23,7 @@ class ItemUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $request =\Request::all();
+        $request = \Request::all();
         $item = $this->route('item');
         return [
             'category_id' => 'not_in:0',
@@ -33,6 +33,7 @@ class ItemUpdateRequest extends FormRequest
             'stock' => 'required',
         ];
     }
+
     public function messages()
     {
         return [

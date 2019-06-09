@@ -30,11 +30,12 @@ class UserUpdateRequest extends FormRequest
             'lastname' => 'required|min:2|max:200',
             'email' => 'required|email',
             'role_id' => 'not_in:0',
-            'user' => 'required|unique:users',
+            'user' => 'required|unique:users,user,' . $user,
             'password' => 'required',
-    
-            ];
+
+        ];
     }
+
     public function messages()
     {
         return [
@@ -48,7 +49,7 @@ class UserUpdateRequest extends FormRequest
             'email.required' => 'El campo email no puede estar vacio',
             'User.unique' => 'El campo usuario debe ser unico',
             'User.required' => 'El campo usuario no puede estar vacio',
-            'User.required' => 'El campo contraseña no puede estar vacio',
+            'password.required' => 'El campo contraseña no puede estar vacio',
         ];
     }
 }

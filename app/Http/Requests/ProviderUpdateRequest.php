@@ -32,34 +32,34 @@ class ProviderUpdateRequest extends FormRequest
             'address' => 'required|min:8|max:50',
             'telephone_contact' => 'required|min:4|max:20',
             'contact' => 'required'
-            
-        
+
+
         ];
     }
-        public function messages()
-        {
-            return [
-                'name.required' => 'El campo nombre no puede ser vacio',
-                'name.min' => 'minimo puede ser 4 caracteres',
-                'name.max' => 'maximo puede ser 10 caracteres',
 
-                'type_doc.required' => 'el tipo de documento no puede ser vacio',
+    public function messages()
+    {
+        return [
+            'name.required' => 'El campo nombre no puede ser vacio',
+            'name.min' => 'minimo puede ser 4 caracteres',
+            'name.max' => 'maximo puede ser 10 caracteres',
 
-                'num_doc.required' => 'el numero de documento no puede ser vacio',
-                'num_doc.min' => 'El campo numero de documento minimo puede ser 8 caracteres',
-                'num_doc.max' => 'El campo numero de documento maximo puede ser 10 caracteres',
+            'type_doc.required' => 'el tipo de documento no puede ser vacio',
 
-                'address.required' => 'la direccion no puede ser vacio',
-                'address.min' => 'El campo direccion minimo puede ser 8 caracteres',
-                'address.max' => 'El campo direccion maximo puede ser 50 caracteres',
+            'num_doc.required' => 'el numero de documento no puede ser vacio',
+            'num_doc.min' => 'El campo numero de documento minimo puede ser 8 caracteres',
+            'num_doc.max' => 'El campo numero de documento maximo puede ser 10 caracteres',
 
-                'telephone_contact.required' => 'el telefono no puede ser vacio',
-                'telephone_contact.min' => 'El campo telefono minimo puede ser 4 caracteres',
-                'telephone_contact.max' => 'El campo telefono maximo puede ser 10 caracteres',
-    
+            'address.required' => 'la direccion no puede ser vacio',
+            'address.min' => 'El campo direccion minimo puede ser 8 caracteres',
+            'address.max' => 'El campo direccion maximo puede ser 50 caracteres',
+
+            'telephone_contact.required' => 'el telefono no puede ser vacio',
+            'telephone_contact.min' => 'El campo telefono minimo puede ser 4 caracteres',
+            'telephone_contact.max' => 'El campo telefono maximo puede ser 10 caracteres',
 
 
-                'contact.required' => 'el email no puede ser vacio'
-            ];
-        }
+            'contact.required' => 'el email no puede ser vacio'
+        ];
     }
+}

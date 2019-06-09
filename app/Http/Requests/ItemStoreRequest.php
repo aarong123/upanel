@@ -31,6 +31,7 @@ class ItemStoreRequest extends FormRequest
             'stock' => 'required',
         ];
     }
+
     public function messages()
     {
         return [

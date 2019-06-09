@@ -3,8 +3,6 @@
 namespace Upanel\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Component\HttpKernel\Client;
-use Upanel\Http\Requests\ClientUpdateRequest;
 
 class ClientStoreRequest extends FormRequest
 {
@@ -35,19 +33,20 @@ class ClientStoreRequest extends FormRequest
             'email' => 'required|email'
         ];
     }
+
     public function messages()
     {
         return [
             'name.required' => 'El campo "Nombre" no puede estar vacío.',
             'name.min' => 'El campo "Nombre" debe ser de mínimo 6 letras.',
             'name.max' => 'El campo "Nombre" debe ser de máximo 20 letras.',
-                  
+
             'lastname.required' => 'El campo "Apellido" no puede estar vacío.',
             'lastname.min' => 'El campo "Apellido" debe ser de mínimo 6 letras.',
             'lastname.max' => 'El campo "Apellido" debe ser de máximo 20 letras.',
 
             'type_doc.not_in' => 'El campo "Tipo de documento" no puede estar vacío.',
- 
+
             'num_doc.required' => 'El campo "Número de documento de identidad" no puede estar vacío.',
             'num_doc.min' => 'El campo "Número de documento de identidad" debe ser de mínimo 8 dígitos.',
             'num_doc.max' => 'El campo "Número de documento de identidad" debe ser de máximo 12 dígitos.',
@@ -62,7 +61,7 @@ class ClientStoreRequest extends FormRequest
 
             'email.required' => 'El campo "Correo electrónico" no puede estar vacío.',
             'email.required' => 'Ingrese un dirección de correo electrónico correcta.'
-            
+
         ];
-}
+    }
 }

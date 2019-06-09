@@ -24,7 +24,7 @@ class DashboardController extends Controller
             ->groupBy(DB::raw('MONTHNAME(i.created_at)'),
                 DB::raw('YEAR(i.created_at)'
                 ))
-            ->whereState(1)
+            ->whereState("Activa")
             ->get();
 
         $sales = DB::table('sales as s')->select(
@@ -36,7 +36,7 @@ class DashboardController extends Controller
             ->groupBy(DB::raw('MONTHNAME(s.created_at)'),
                 DB::raw('YEAR(s.created_at)'
                 ))
-            ->whereState(1)
+            ->whereState("Activa")
             ->get();
 
         return [

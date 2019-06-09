@@ -27,10 +27,11 @@ class EntryStoreRequest extends FormRequest
             'id_entry' => 'not_in:0',
             'id_item' => 'not_in:0',
             'price' => 'required',
-            'quantity' =>'required'
+            'quantity' => 'required'
 
         ];
     }
+
     public function messages()
     {
         return [
@@ -38,7 +39,7 @@ class EntryStoreRequest extends FormRequest
             'id_item.required' => 'El campo de "Proveedores" no puede estar vacío.',
             'price.required' => 'El campo "Precio" no puede estar vacío.',
             'quantity.required' => 'El campo "Cantidad" no puede estar vacío.'
-            
+
         ];
     }
 }
