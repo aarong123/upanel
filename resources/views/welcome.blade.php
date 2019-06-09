@@ -95,8 +95,6 @@
         @endif
         <div class="links">
             @include('partialMenu')
-            <br>
-            <br>
         </div>
     </div>
 </div>

@@ -6,4 +6,6 @@
 <a href="{{ url('provider') }}">Proveedores</a>
 <a href="{{ url('client') }}">Clientes</a>
 <a href="{{ url('rol') }}">Roles</a>
+<br>
+<br>
 <a href="{{ url('user') }}">Gestión de usuarios</a>
