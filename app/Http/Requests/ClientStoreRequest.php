@@ -26,47 +26,42 @@ class ClientStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:6|max:200',
-            'lastname' => 'required',
+            'name' => 'required|min:4|max:20',
+            'lastname' => 'required|min:4|max:20',
             'type_doc' => 'not_in:0',
-            'num_doc' => 'required|min:6|max:200',
-            'address' => 'required|min:6|max:200',
-            'telephone' => 'required|min:6|max:200',
+            'num_doc' => 'required|min:8|max:12',
+            'address' => 'required|min:8|max:50',
+            'telephone' => 'required|min:7|max:10',
             'email' => 'required|email'
-           
-
-            
         ];
     }
     public function messages()
     {
         return [
-            'name.required' => 'El campo nombre no puede ser vacio',
-            'name.min' => 'minimo puede ser 6 caracteres',
-            'name.max' => 'maximo puede ser 10 caracteres',
+            'name.required' => 'El campo "Nombre" no puede estar vacío.',
+            'name.min' => 'El campo "Nombre" debe ser de mínimo 6 letras.',
+            'name.max' => 'El campo "Nombre" debe ser de máximo 20 letras.',
                   
-            'lastname.required' => 'El campo apeliido no puede ser vacio',
-            
+            'lastname.required' => 'El campo "Apellido" no puede estar vacío.',
+            'lastname.min' => 'El campo "Apellido" debe ser de mínimo 6 letras.',
+            'lastname.max' => 'El campo "Apellido" debe ser de máximo 20 letras.',
 
-
-            'type_doc.not_in' => 'El campo tipo de documento no puede ser vacio',
+            'type_doc.not_in' => 'El campo "Tipo de documento" no puede estar vacío.',
  
+            'num_doc.required' => 'El campo "Número de documento de identidad" no puede estar vacío.',
+            'num_doc.min' => 'El campo "Número de documento de identidad" debe ser de mínimo 8 dígitos.',
+            'num_doc.max' => 'El campo "Número de documento de identidad" debe ser de máximo 12 dígitos.',
 
+            'address.required' => 'El campo "Dirección de residencia" no puede estar vacío.',
+            'address.min' => 'El campo "Dirección de residencia" debe ser de mínimo 8 caracteres.',
+            'address.max' => 'El campo "Dirección de residencia" debe ser de máximo 50 caracteres.',
 
-            'num_doc.required' => 'El campo numero de documento no puede ser vacio',
-            'num_doc.min' => 'El campo numero de documento minimo puede ser 6 caracteres',
-            'num_doc.max' => 'El campo numero de documento maximo puede ser 10 caracteres',
+            'telephone.required' => 'El campo "Número telefónico" no puede estar vacío.',
+            'telephone.min' => 'El campo "Número telefónico" debe ser de mínimo 7 dígitos.',
+            'telephone.max' => 'El campo "Número telefónico" debe ser de máximo 10 dígitos.',
 
-            'address.required' => 'El campo direccion no puede ser vacio',
-            'address.min' => 'El campo direccion minimo puede ser 6 caracteres',
-            'address.max' => 'El campo direccion maximo puede ser 10 caracteres',
-
-            'telephone.required' => 'El campo telefono no puede ser vacio',
-            'telephone.min' => 'El campo telefono minimo puede ser 10 caracteres',
-            'telephone.max' => 'El campo telefono maximo puede ser 20 caracteres',
-
-            'email.required' => 'El campo email no puede ser vacio',
-            'email.required' => 'tiene que ser email'
+            'email.required' => 'El campo "Correo electrónico" no puede estar vacío.',
+            'email.required' => 'Ingrese un dirección de correo electrónico correcta.'
             
         ];
 }

@@ -12,15 +12,17 @@
 
     @endif
 
-    @foreach ($errors->all() as $message)
-
     <div class="alert alert-danger" role="alert">
-        <strong>
-            {{ $message }}
-        </strong>
+            <ul>
+                @foreach ($errors->all() as $message)
+                    <li>
+                        <strong>
+                            {{ $message }}
+                        </strong>
+                    </li>
+                @endforeach
+            </ul>
     </div>
-        
-    @endforeach
 
     <div class="wrapper">
         <form class="formulario" method="post" action="{{ url('category/register') }}">

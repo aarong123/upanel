@@ -34,10 +34,10 @@ class EntryStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'id_entry.required' => 'El campo de la id de compra no puede ser vacio',
-            'id_item.required' => 'El campo de la id de productos no puede ser vacio',
-            'price.required' => 'El campo de precio no puede ser vacio',
-            'quantity.required' => 'El campo cantidad no puede ser vacio'
+            'id_entry.required' => 'El campo de "Productos" no puede estar vacío.',
+            'id_item.required' => 'El campo de "Proveedores" no puede estar vacío.',
+            'price.required' => 'El campo "Precio" no puede estar vacío.',
+            'quantity.required' => 'El campo "Cantidad" no puede estar vacío.'
             
         ];
     }

@@ -33,7 +33,7 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'name.required' => 'El campo "Nombre" no puede estar vacío.',
-            'name.min' => 'El campo "Nombre" debe ser de mínimo 6 caracteres.',
+            'name.min' => 'El campo "Nombre" debe ser de mínimo 6 letras.',
         ];
     }
 }

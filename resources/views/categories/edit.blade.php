@@ -15,13 +15,17 @@
     @foreach ($errors->all() as $message)
 
     <div class="alert alert-danger" role="alert">
-        <strong>
-            {{ $message }}
-        </strong>
-
+        <ul>
+            <li>
+                <strong>
+                    {{ $message }}
+                </strong>
+            </li>
+        </ul>
     </div>
-
+        
     @endforeach
+    
         <div class="wrapper">
             <form class= "formulario" method="post" action="{{ url('category/update/' . $category->id) }}">
                 @csrf
