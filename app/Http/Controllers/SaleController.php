@@ -11,6 +11,7 @@ use Upanel\Item;
 use Upanel\Sale;
 use Upanel\Person;
 use Upanel\Provider;
+use Upanel\Http\Requests\SaleStoeRequest;
 
 class SaleController extends Controller
 {
@@ -30,7 +31,7 @@ class SaleController extends Controller
         return view('sales.create', compact('persons','items'));
     }
 
-    public function store(Request $request)
+    public function store(request $request)
     {
         //$quantity = $request->quantity;
         //$price = $request->price;

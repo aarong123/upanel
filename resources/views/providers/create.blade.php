@@ -10,7 +10,9 @@
             </strong>
         </div>
     @endif
-
+    @foreach ($errors->all() as $message)
+    {{ $message }}
+@endforeach
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url('provider/register') }}">
             @csrf
@@ -27,7 +29,7 @@
                 <div class="form-group col-md-6">
                     <label for="type_doc">Tipo de documento:</label>
                     <select id="type_doc" class="form-control" name="type_doc">
-                        <option selected>Seleccione...</option>
+                        <option value="0" selected>Seleccione...</option>
                         <option value="RUT">RUT</option>
                         <option value="NIT">NIT</option>
                     </select>
