@@ -51,7 +51,7 @@ class SaleController extends Controller
             'state' => "realizado",
         ]);
 
-        $checksale =CheckSale::create([
+        CheckSale::create([
             'id_sale' => $sale->id,
             'id_item' => $request->item_id,
             'price' => $request->price,

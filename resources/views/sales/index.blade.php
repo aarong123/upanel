@@ -31,9 +31,7 @@
                         <th scope="col">tax</th>
                         <th scope="col">total</th>
                         <th scope="col">state</th>
-                        
-
-
+                       
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
