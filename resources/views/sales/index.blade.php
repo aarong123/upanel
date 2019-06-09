@@ -39,8 +39,8 @@
                         <tr>
                             <th scope="row">{{ $sale->id }}</th>
                             <td>{{ $sale->state }}</td>
-                            <td>{{ $sale->id_client }}</td>
-                            <td>{{ $sale->id_user }}</td>
+                            <td>{{ $sale->person->name }}</td>
+                            <td>{{ $sale->user->user }}</td>
                             <td>{{ $sale->type_voucher }}</td>
                             <td>{{ $sale->series_voucher }}</td>
                             <td>{{ $sale->num_voucher }}</td>
