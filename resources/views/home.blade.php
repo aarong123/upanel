@@ -4,9 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
+            <div class="card border-success">
                 <div class="card-body" style="align-text:center">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -14,7 +12,7 @@
                         </div>
                     @endif
 
-                    <div style="text-align:center; margin: 0 auto;"> 
+                    <div style="text-align:center; margin: 0 auto; color: black"> 
                     ¡Te encuentras logueado!
                     <br>
                     <br>

@@ -15,8 +15,9 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.2",
         "axios": "^0.18",
-        "chart.js": "^2.7.3",
         "bootstrap": "^4.1.0",
+        "bootswatch": "^4.3.1",
+        "chart.js": "^2.7.3",
         "cross-env": "^5.1",
         "datatables.net-bs4": "^1.10.19",
         "jquery": "^3.2",

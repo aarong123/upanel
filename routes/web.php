@@ -93,7 +93,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     Route::group(['middleware' => ['Vendedor']], function () {
-// rutas de client
+
+        // rutas de client
         Route::get('/client', 'ClientController@index');
         Route::post('/client/register', 'ClientController@store');
         Route::put('/client/update', 'ClientController@update');
@@ -103,7 +104,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/sale', 'SaleController@index');
         Route::get('/sale/create', 'SaleController@create');
         Route::post('/sale/register', 'SaleController@store');
-        Route::delete('/sale/deactive/{sale}', 'SaleController@deactive');        
+        Route::delete('/sale/deactive/{sale}', 'SaleController@deactive');
     });
     Route::group(['middleware' => ['Almacenero']], function () {
         // rutas de categorias
@@ -138,7 +139,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/entry', 'EntryController@index');
         Route::get('/entry/create', 'EntryController@create');
         Route::post('/entry/register', 'EntryController@store');
-        Route::delete('/entry/deactive/{entry}', 'EntryController@deactive');        
+        Route::delete('/entry/deactive/{entry}', 'EntryController@deactive');
     });
 });
 

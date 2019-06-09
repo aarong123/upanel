@@ -2,6 +2,7 @@
 
 namespace Upanel;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -17,7 +18,6 @@ class Item extends Model
         "description",
         "state",
         "expiration_date",
-        "sales_threshold",
         "stock_threshold",
         "expiration_threshold"
     ];
@@ -25,5 +25,10 @@ class Item extends Model
     protected $dates = [
         'expiration_date'
     ];
+
+    public function getExpirationDateStringAttribute()
+    {
+        return Carbon::parse($this->attributes['expiration_date'])->format('Y-m-d');
+    }
 
 }

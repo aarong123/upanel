@@ -11,6 +11,18 @@
         </div>
 
     @endif
+    
+    <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $message)
+                    <li>
+                        <strong>
+                            {{ $message }}
+                        </strong>
+                    </li>
+                @endforeach
+            </ul>
+    </div>
 
     <div class="wrapper">
             <form class="formulario1" method="post" action="{{ url('client/update/' . $client->id) }}">

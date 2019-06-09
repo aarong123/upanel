@@ -10,7 +10,19 @@
             </strong>
         </div>
     @endif
-
+   
+    <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $message)
+                    <li>
+                        <strong>
+                            {{ $message }}
+                        </strong>
+                    </li>
+                @endforeach
+            </ul>
+    </div>
+    
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url("provider/update/$provider->id") }}">
             @csrf
@@ -52,7 +64,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="contact">Correo electrónico de contacto:</label>
-                    <input type="email" placeholder="Ingrese el correo electrónico de contacto" name="contact"
+                    <input type="text" placeholder="Ingrese el correo electrónico de contacto" name="contact"
                            value="{{ $provider->contact }}">
                     <i class="fa fa-at"></i>
                 </div>

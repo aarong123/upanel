@@ -1,16 +1,9 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>UPanel</title>
+@section('styles')
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-    <!-- Styles -->
     <style>
+
         html, body {
             color: #ffffff;
             font-weight: 200;
@@ -65,46 +58,40 @@
         }
 
     </style>
-</head>
-<body>
-<div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-                <a href="{{ url('/home') }}" id="home">Home</a>
-            @else
-                <a href="{{ route('login') }}">Login</a>
 
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif
-            @endauth
-        </div>
-    @endif
+@stop
+@section('content')
 
-    <div class="content">
-        <div class="title m-b-md">UPanel</div>
-        @if (session()->has('unauthorized'))
+    <div class="flex-center position-ref full-height">
+        @if (Route::has('login'))
+            <div class="top-right links">
+                @auth
+                    <a href="{{ url('/home') }}" id="home">Home</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
 
-            <div class="alert alert-success" role="alert">
-                <strong>
-                    {{ session()->get('unauthorized') }}
-                </strong>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}">Register</a>
+                    @endif
+                @endauth
             </div>
-
         @endif
-        <div class="links">
-            <a href="{{ url('dashboardView') }}">Dashboard</a>
-            <a href="{{ url('category') }}">Categorías</a>
-            <a href="{{ url('item') }}">Productos</a>
-            <a href="{{ url('sale') }}">Ventas</a>
-            <a href="{{ url('entry') }}">Compras</a>
-            <a href="{{ url('provider') }}">Proveedores</a>
-            <a href="{{ url('client') }}">Clientes</a>
-            <a href="{{ url('rol') }}">Roles</a>
-            <a href="{{ url('user') }}">Gestión de usuarios</a>
+
+        <div class="content">
+            <div class="title m-b-md">UPanel</div>
+            @if (session()->has('unauthorized'))
+
+                <div class="alert alert-warning" role="alert">
+                    <strong>
+                        {{ session()->get('unauthorized') }}
+                    </strong>
+                </div>
+
+            @endif
+            <div class="links">
+                @include('partialMenu')
+            </div>
         </div>
     </div>
-</div>
-</body>
-</html>
+
+@stop

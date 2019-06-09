@@ -4,6 +4,8 @@ namespace Upanel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Upanel\Person;
+use Upanel\Http\Requests\ClientStoreRequest;
+use Upanel\Http\Requests\ClientUpdateRequest;
 
 class ClientController extends Controller
 {
@@ -18,7 +20,7 @@ class ClientController extends Controller
         return view('clients.create');
     }
 
-    public function store(Request $request)
+    public function store(ClientStoreRequest $request)
     {
         $client = Person::create([
             'name' => $request->name,
@@ -26,8 +28,8 @@ class ClientController extends Controller
             'type_doc' => $request->type_doc,
             'num_doc' => $request->num_doc,
             'address' => $request->address,
-            'telephone' => $request->telephone_contact,
-            'email' => $request->contact,
+            'telephone' => $request->telephone,
+            'email' => $request->email,
         ]);
         return redirect()->back()->with('success', "El cliente $client->name se ha registrado con éxito.");
 
@@ -40,7 +42,7 @@ class ClientController extends Controller
 
     }
 
-    public function update(Request $request, $client)
+    public function update(ClientUpdateRequest $request, $client)
     {
         $client = Person::withTrashed()->whereId($client)->first();
 
@@ -49,7 +51,7 @@ class ClientController extends Controller
         $client->type_doc = $request->type_doc;
         $client->num_doc = $request->num_doc;
         $client->address = $request->address;
-        $client->telephone = $request->telephone_contact;
+        $client->telephone = $request->telephone;
         $client->email = $request->email;
         $client->save();
 

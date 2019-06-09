@@ -5,6 +5,8 @@ namespace Upanel\Http\Controllers;
 use Illuminate\Http\Request;
 use Upanel\Person;
 use Upanel\Provider;
+use Upanel\Http\Requests\ProviderStoreRequest;
+use Upanel\Http\Requests\ProviderUpdateRequest;
 
 class ProviderController extends Controller
 {
@@ -19,7 +21,7 @@ class ProviderController extends Controller
         return view('providers.create');
     }
 
-    public function store(Request $request)
+    public function store(ProviderStoreRequest $request)
     {
         $person = Person::create([
             'name' => $request->name,
@@ -47,7 +49,7 @@ class ProviderController extends Controller
 
     }
 
-    public function update(Request $request, $provider)
+    public function update(ProviderUpdateRequest $request, $provider)
     {
         $provider = Provider::withTrashed()->whereId($provider)->first();
         $person = $provider->person;

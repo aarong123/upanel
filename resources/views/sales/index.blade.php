@@ -16,22 +16,21 @@
 
         <div class="card">
             <div class="card-header">
-                Listado de todas las ventas
+                Listado de ventas
             </div>
             <div class="card-body" style="width:1070px;">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">id_client</th>
-                        <th scope="col">id_user</th>
-                        <th scope="col">type_voucher</th>
-                        <th scope="col">series_voucher</th>
-                        <th scope="col">num_voucher</th>
-                        <th scope="col">tax</th>
-                        <th scope="col">total</th>
-                        <th scope="col">state</th>
-                       
+                        <th scope="col">#</th>                       
+                        <th scope="col">Estado</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Tipo de comprobante</th>
+                        <th scope="col">Serie de comprobante</th>
+                        <th scope="col">Número de comprobante</th>
+                        <th scope="col">Impuesto</th>
+                        <th scope="col">Total</th>         
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -40,15 +39,14 @@
                     
                         <tr>
                             <th scope="row">{{ $sale->id }}</th>
-                            <td>{{ $sale->id_client}}</td>
-                            <td>{{ $sale->id_user }}</td>
+                            <td>{{ $sale->state }}</td>
+                            <td>{{ $sale->person->name }}</td>
+                            <td>{{ $sale->user->user }}</td>
                             <td>{{ $sale->type_voucher }}</td>
                             <td>{{ $sale->series_voucher }}</td>
                             <td>{{ $sale->num_voucher }}</td>
                             <td>{{ $sale->tax }}</td>
-                            <td>{{ $sale->total }}</td>
-                            <td>{{ $sale->state }}</td>
-                            
+                            <td>{{ $sale->total }}</td>                            
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
@@ -59,7 +57,7 @@
                                         <form method="post" action="{{ url('/sale/deactive/' . $sale->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="dropdown-sale">Desactivar
+                                            <div style="text-align: center"><button type="submit" class="dropdown-item">Anular venta</div>
                                             </button>
                                         </form>
                                     </div>
@@ -71,7 +69,7 @@
                 </table>
                 <br>
             <div style="text-align:center; margin: 0 auto;"> 
-            <a href="{{ url('sale/create') }}" class="btn btn-primary">Crear venta</a>
+            <a href="{{ url('sale/create') }}" class="btn btn-primary">Registrar una nueva venta</a>
             </div>
             </div>
         </div>

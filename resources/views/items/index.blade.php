@@ -11,7 +11,9 @@
         </div>
 
     @endif
-
+    @foreach ($errors->all() as $message)
+    {{ $message }}
+@endforeach
     <div class="container" style="width:1100px;padding:0px 30px 0px 0px">
 
         <div class="card">
