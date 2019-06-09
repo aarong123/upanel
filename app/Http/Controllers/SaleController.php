@@ -19,7 +19,6 @@ class SaleController extends Controller
     public function index()
     {
         $sales = Sale::all();
-        //dd($sales[0]);
         return view('sales.index', compact('sales'));
 
     }
@@ -27,8 +26,7 @@ class SaleController extends Controller
     public function create()
     {
         $persons = Person::all();
-        //$users = User::all();
-        $items = Item::all();
+        $items = Item::where('stock', '>', 0)->get();
         return view('sales.create', compact('persons','items'));
     }
 
@@ -52,7 +50,7 @@ class SaleController extends Controller
             'num_voucher' => 1,
             'tax' => $iva,
             'total' => $desTotal,
-            'state' => "activado",
+            'state' => "Activa",
         ]);
 
         CheckSale::create([
