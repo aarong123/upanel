@@ -5,7 +5,8 @@ namespace Upanel\Http\Controllers;
 use Illuminate\Http\Request;
 use Upanel\Category;
 use Upanel\Item;
-
+use Upanel\Http\Requests\ItemStoreRequest;
+use Upanel\Http\Requests\ItemUpdateRequest;
 class ItemController extends Controller
 {
 
@@ -22,7 +23,7 @@ class ItemController extends Controller
         return view('items.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(ItemStoreRequest $request)
     {
         $item = Item::create($request->all());
 
@@ -37,7 +38,7 @@ class ItemController extends Controller
         return view('items.edit', compact('item', 'categories'));
     }
 
-    public function update(Request $request, $item)
+    public function update(ItemUpdateRequest $request, $item)
     {
         $item = Item::withTrashed()->whereId($item)->first();
         $item->category_id = $request->category_id;

@@ -23,9 +23,12 @@ class CategoryUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $request =\Request::all();
         $category = $this->route('category');
+        
         return [
-            'name' => 'required|min:6|unique:categories,name,' . $category
+            
+            'name' => 'required|min:6|max:200|unique:categories,name,' . $category
         ];
     }
 
@@ -33,7 +36,9 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'name.required' => 'El campo nombre no puede ser vacio',
-            'name.min' => 'minimo puede ser 6 caracteres'
+            'name.min' => 'El campo nombre minimo debe tener 6 caracteres',
+            'name.unique' => 'El nombre debe ser unico',
+            'name.max' => 'El campo nombre maximo pueden tener 200 caracteres',
         ];
     }
 }

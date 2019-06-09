@@ -21,7 +21,7 @@ class UserController extends Controller
         return view('users.create', compact('roles'));
     }
 
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
         $person = Person::create($request->all());
 
@@ -42,7 +42,7 @@ class UserController extends Controller
         return view('users.edit', compact('user', 'roles'));
     }
 
-    public function update(Request $request, $person)
+    public function update(UserUpdateRequest $request, $person)
     {
         $person = Person::withTrashed()->whereId($person)->first();
 
