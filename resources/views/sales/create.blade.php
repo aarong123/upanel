@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-md-3 form-control-label">clientes (*)</label>
+                <label class="col-md-3 form-control-label">Clientes (*)</label>
                 <div class="col-md-6">
                     <select class="form-control" name="id_client">
                         <option disabled value="0">Seleccione un cliente</option>
@@ -50,19 +50,22 @@
                 <label class="col-md-3 form-control-label">Cantidad (*)</label>
                 <div class="col-md-6">
                     <input type="number" placeholder="Ingrese la cantidad" name="quantity">
+                    <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label class="col-md-3 form-control-label">Precio (*)</label>
                 <div class="col-md-6">
-                    <input type="number" placeholder="Ingrese el precio" name="price">
+                    <input type="number" placeholder="Ingrese el precio" name="price" min="1" pattern="^[0-9]+">
+                    <i class="fa fa-dollar-sign"></i>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-md-3 form-control-label">discount (*)</label>
+                <label class="col-md-3 form-control-label">Descuento (*)</label>
                 <div class="col-md-6">
-                    <input type="number" placeholder="discount" name="discount">
+                    <input type="number" placeholder="Ingrese el descuento a aplicar" name="discount">
+                    <i class="fa fa-percent"></i>
                 </div>
             </div>            
             <div style="text-align:center; padding:40px 0px 0px 0px;">

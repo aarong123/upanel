@@ -11,12 +11,14 @@ use Upanel\Item;
 use Upanel\Sale;
 use Upanel\Person;
 use Upanel\Provider;
+use Upanel\Http\Requests\SaleStoeRequest;
 
 class SaleController extends Controller
 {
     public function index()
     {
         $sales = Sale::all();
+        //dd($sales[0]);
         return view('sales.index', compact('sales'));
 
     }
@@ -28,6 +30,7 @@ class SaleController extends Controller
         $items = Item::all();
         return view('sales.create', compact('persons','items'));
     }
+
 
     public function store(SaleStoreRequest $request)
     {
@@ -44,7 +47,7 @@ class SaleController extends Controller
             'num_voucher' => 1,
             'tax' => 0,
             'total' => 0,
-            'state' => 1,
+            'state' => 'Activa',
         ]);
 
         CheckSale::create([
@@ -54,16 +57,16 @@ class SaleController extends Controller
             'quantity' => $request->quantity,
             'discount' => $request->discount
         ]);
-        return redirect()->back()->with('success', "La venta ha sido creada");
+        return redirect()->back()->with('success', "La venta se ha registrado con éxito.");
 
     }
 
     public function deactive($sale)
     {
         $sale = Sale::findOrFail($sale);
-        $sale->state = 'Anulado';
+        $sale->state = 'Anulada';
         $sale->save();
-        return redirect()->back()->with('success', "La venta a sido anulada con exito");
+        return redirect()->back()->with('success', "La venta se ha anulado con éxito.");
 
     }
 

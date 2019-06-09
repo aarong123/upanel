@@ -10,12 +10,15 @@ use Upanel\Entry;
 use Upanel\Item;
 use Upanel\Person;
 use Upanel\Provider;
+use Upanel\Http\Requests\EntryStoeRequest;
+use Upanel\Http\Requests\EntryStoreRequest;
 
 class EntryController extends Controller
 {
     public function index()
     {
         $entries = Entry::all();
+        //dd($entries[0]);
         return view('entries.index', compact('entries'));
     }
 
@@ -26,7 +29,7 @@ class EntryController extends Controller
         return view('entries.create', compact('items', 'providers'));
     }
 
-    public function store(Request $request)
+    public function store(EntryStoreRequest $request)
     {
         $quantity = $request->quantity;
         $price = $request->price;
@@ -40,7 +43,7 @@ class EntryController extends Controller
             'num_voucher' => 1,
             'tax' => 0,
             'total' => $subTotal,
-            'state' => 1,
+            'state' => 'Activa',
         ]);
 
         CheckEntry::create([
