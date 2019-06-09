@@ -31,6 +31,7 @@
                         <th scope="col">tax</th>
                         <th scope="col">total</th>
                         <th scope="col">state</th>
+                        
 
 
                         <th scope="col">Opciones</th>
@@ -38,6 +39,7 @@
                     </thead>
                     <tbody>
                     @foreach($sales as $sale)
+                    
                         <tr>
                             <th scope="row">{{ $sale->id }}</th>
                             <td>{{ $sale->id_client}}</td>
@@ -48,6 +50,7 @@
                             <td>{{ $sale->tax }}</td>
                             <td>{{ $sale->total }}</td>
                             <td>{{ $sale->state }}</td>
+                            
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"

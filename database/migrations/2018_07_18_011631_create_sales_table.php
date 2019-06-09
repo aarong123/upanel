@@ -22,7 +22,7 @@ class CreateSalesTable extends Migration
             $table->string('type_voucher', 20);
             $table->string('series_voucher', 7)->nullable();
             $table->string('num_voucher', 10);
-            $table->decimal('tax', 4, 2);
+            $table->decimal('tax', 11, 2);
             $table->decimal('total', 11, 2);
             $table->string('state', 20);
             $table->timestamps();

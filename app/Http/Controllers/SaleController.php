@@ -35,22 +35,23 @@ class SaleController extends Controller
         $price = $request->price;
         $discount = $request->discount;
         $subTotal = $quantity * $price;
+        $iva = $subTotal*0.19;
         $subdiscount = $subTotal*($discount/100);
-        $endTotal=$subTotal-$subdiscount;
+        $desTotal=$subTotal-$subdiscount;
+        
 
-        //$tax = $subTotal * 0.19;
         $sale = Sale::create([
             'id_client' => $request->id_client,
             'id_user' => Auth::id(),
             'type_voucher' => 1,            
             'series_voucher' => 1,            
             'num_voucher' => 1,
-            'tax' => 0,
-            'total' => $endTotal,
-            'state' => 1,
+            'tax' => $iva,
+            'total' => $desTotal,
+            'state' => "realizado",
         ]);
 
-        CheckSale::create([
+        $checksale =CheckSale::create([
             'id_sale' => $sale->id,
             'id_item' => $request->item_id,
             'price' => $request->price,
