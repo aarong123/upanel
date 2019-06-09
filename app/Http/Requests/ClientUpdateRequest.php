@@ -31,14 +31,13 @@ class ClientUpdateRequest extends FormRequest
             'num_doc' => 'required',
             'address' => 'required',
             'telephone' => 'required',
-            'email' => 'required'
+            'email' => 'required|email'
         ];
     }
 
     public function messages()
     {
         return [
-
             'name.required' => 'El campo "Nombre" no puede estar vacío.',
             'lastname.required' => 'El campo "Apellido" no puede estar vacío.',
             'type_doc.not_in' => 'El campo "Tipo de documento" no puede estar vacío.',
