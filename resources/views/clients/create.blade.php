@@ -10,9 +10,19 @@
             </strong>
         </div>
     @endif
-    @foreach ($errors->all() as $message)
-    {{ $message }}
-@endforeach
+
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach ($errors->all() as $message)
+                <li>
+                    <strong>
+                        {{ $message }}
+                    </strong>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
 
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url('client/register') }}">
@@ -48,7 +58,7 @@
             <div class="form-group row">
                 <div class="form-group col-md-6">
                     <label for="type_doc">Tipo de documento:</label>
-                    <select  id="type_doc" class="form-control" name="type_doc">
+                    <select id="type_doc" class="form-control" name="type_doc">
                         <option value="0" selected>Seleccione...</option>
                         <option value="cc">Cédula de ciudadanía</option>
                         <option value="CE">Cédula de extranjería</option>
