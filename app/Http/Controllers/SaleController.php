@@ -11,7 +11,7 @@ use Upanel\Item;
 use Upanel\Sale;
 use Upanel\Person;
 use Upanel\Provider;
-use Upanel\Http\Requests\SaleStoeRequest;
+use Upanel\Http\Requests\SaleStoreRequest;
 
 class SaleController extends Controller
 {
@@ -40,9 +40,7 @@ class SaleController extends Controller
         $subTotal = $quantity * $price;
         $iva = $subTotal*0.19;
         $subdiscount = $subTotal*($discount/100);
-        $desTotal=$subTotal-$subdiscount;
-        
-
+        $desTotal=$subTotal-$subdiscount+$iva;
         $sale = Sale::create([
             'id_client' => $request->id_client,
             'id_user' => Auth::id(),
