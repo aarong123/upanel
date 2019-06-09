@@ -55,7 +55,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="contact">Correo electrónico de contacto:</label>
-                    <input type="email" placeholder="Ingrese el correo electrónico de contacto" name="contact"
+                    <input type="text" placeholder="Ingrese el correo electrónico de contacto" name="contact"
                            value="{{ $provider->contact }}">
                     <i class="fa fa-at"></i>
                 </div>

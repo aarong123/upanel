@@ -23,7 +23,7 @@ class ProviderUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $person = $this->route('provider');
+        $provider = $this->route('provider');
 
         return [
             'name' => 'required',
