@@ -31,7 +31,8 @@ class SaleController extends Controller
         return view('sales.create', compact('persons','items'));
     }
 
-    public function store(request $request)
+
+    public function store(SaleStoreRequest $request)
     {
         //$quantity = $request->quantity;
         //$price = $request->price;
