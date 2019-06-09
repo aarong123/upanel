@@ -18,6 +18,7 @@ class EntryController extends Controller
     public function index()
     {
         $entries = Entry::all();
+        //dd($entries[0]);
         return view('entries.index', compact('entries'));
     }
 
@@ -42,7 +43,7 @@ class EntryController extends Controller
             'num_voucher' => 1,
             'tax' => 0,
             'total' => $subTotal,
-            'state' => 1,
+            'state' => 'Activa',
         ]);
 
         CheckEntry::create([

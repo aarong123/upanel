@@ -51,19 +51,24 @@ class DashboardController extends Controller
         if (!$request->ajax()) return redirect('/main');
 
         $items = Item::all();
-        $itemsNotifications = [];
+        $itemsNotificationsStock = [];
+        $itemsNotificationsExpirationDate = [];
 
         foreach ($items as $item) {
             $expiration_date_threshold = $item->expiration_date->subDays($item->expiration_threshold);
+
             if ($item->stock <= $item->stock_threshold) {
-                $itemsNotifications[] = $item;
-            } else if ($expiration_date_threshold <= Carbon::now()) {
-                $itemsNotifications[] = $item;
+                $itemsNotificationsStock[] = $item;
+            }
+
+            if ($expiration_date_threshold <= Carbon::now()) {
+                $itemsNotificationsExpirationDate[] = $item;
             }
 
         }
         return [
-            'itemsNotifications' => $itemsNotifications,
+            'itemsNotificationsStock' => $itemsNotificationsStock,
+            'itemsNotificationsExpirationDate' => $itemsNotificationsExpirationDate,
         ];
     }
 

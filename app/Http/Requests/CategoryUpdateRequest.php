@@ -32,8 +32,8 @@ class CategoryUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'El campo nombre no puede ser vacio',
-            'name.min' => 'minimo puede ser 6 caracteres'
+            'name.required' => 'El campo "Nombre" no puede estar vacío.',
+            'name.min' => 'El campo "Nombre" debe ser de mínimo 6 caracteres.',
         ];
     }
 }

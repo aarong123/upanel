@@ -18,12 +18,19 @@
             <div class="card-header">
                 Listado de compras
             </div>
-            <div class="card-body" style="margin: 0 auto;">
+            <div class="card-body" style="margin: 0 auto; width:1070px;">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Estado</th>
+                        <th scope="col">Proveedor</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Tipo de comprobante</th>
+                        <th scope="col">Serie de comprobante</th>
+                        <th scope="col">Número de comprobante</th>
+                        <th scope="col">Impuesto</th>
+                        <th scope="col">Total</th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -32,6 +39,14 @@
                         <tr>
                             <th scope="row">{{ $entry->id }}</th>
                             <td>{{ $entry->state }}</td>
+                            <td>{{ $entry->provider->person->name }}</td>
+                            <td>{{ $entry->user->user }}</td>
+                            <td>{{ $entry->type_voucher }}</td>
+                            <td>{{ $entry->series_voucher }}</td>
+                            <td>{{ $entry->num_voucher }}</td>
+                            <td>{{ $entry->tax }}</td>
+                            <td>{{ $entry->total }}</td>
+                            
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
@@ -42,7 +57,7 @@
                                         <form method="post" action="{{ url('/entry/deactive/' . $entry->id) }}">
                                             @csrf
                                             @method('DELETE')
-                                        <div style="text-align: center"></div><button type="submit" class="dropdown-item">Anular compra</div>
+                                        <div style="text-align: center"><button type="submit" class="dropdown-item">Anular compra</div>
                                             </button>
                                         </form>
                                     </div>

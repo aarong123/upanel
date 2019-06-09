@@ -20,6 +20,6 @@ class Vendedor
         if (Auth::user()->role_id === 1 || Auth::user()->role_id === 2) {
             return $next($request);
         }
-        return redirect()->back()->with('unauthorized', "Solo accesible por un vendedor o administrador directamente.");
+        return redirect('/main')->with('unauthorized', "Solo accesible por un vendedor o administrador directamente.");
     }
 }
