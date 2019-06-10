@@ -35,11 +35,11 @@ class SaleStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'id_client.required' => 'El selector de clientes no puede estar vacio',
-            'id_item.required' => 'El selector de productos no puede estar vacio',
-            'price.required' => 'El campo codigo no puede estar vacio',
-            'quantify.required' => 'El campo codigo no puede estar vacio',
-            'discount.required' => 'El campo descuento no puede estar vacio',
+            'id_client.required' => 'El selector de "Cliente" no puede estar vacío.',
+            'id_item.required' => 'El selector de "Producto" no puede estar vacío.',
+            'price.required' => 'El campo "Precio" no puede estar vacío.',
+            'quantify.required' => 'El campo "Cantidad" no puede estar vacío.',
+            'discount.required' => 'El campo "Descuento(%)" no puede estar vacío.',
         ];
     }
 }

@@ -25,25 +25,40 @@ class ItemStoreRequest extends FormRequest
     {
         return [
             'category_id' => 'not_in:0',
-            'name' => 'required|min:6|unique:items|max:200',
-            'code' => 'required|min:6|unique:items|max:200',
+            'code' => 'required|min:6|unique:items|max:50',
+            'name' => 'required|min:6|unique:items|max:20',
             'price_sale' => 'required',
+            'expiration_date' => 'required',
             'stock' => 'required',
+            'stock_threshold' => 'required',
+            'expiration_threshold' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'category_id.required' => 'El selector de categorias no puede estar vacio',
-            'name.required' => 'El campo nombre no puede estar vacio',
-            'name.min' => 'El campo nombre minimo debe tener 6 caracteres',
-            'name.unique' => 'el nombre debe ser unico',
-            'code.required' => 'El campo codigo no puede estar vacio',
-            'code.min' => 'El campo codigo minimo deben tener 6 caracteres',
-            'code.unique' => 'El codigo debe ser unico',
-            'price_sale.required' => 'El campo precio no puede estar vacio',
-            'stock.required' => 'El campo stock no puede estar vacio',
+            'category_id.required' => 'El selector de "Categorías" no puede estar vacío.',
+
+            'code.required' => 'El campo "Código" no puede estar vacío.',
+            'code.min' => 'El campo "Código" debe ser de mínimo 6 caracteres.',
+            'code.max' => 'El campo "Código" debe ser de máximo 50 caracteres.',
+            'code.unique' => 'El código debe ser único.',
+
+            'name.required' => 'El campo "Nombre" no puede estar vacío.',
+            'name.min' => 'El campo "Nombre" debe ser de mínimo 6 letras.',
+            'name.max' => 'El campo "Nombre" debe ser de máximo 20 letras.',
+            'name.unique' => 'El nombre debe ser único',
+
+            'price_sale.required' => 'El campo "Precio de venta del producto" no puede estar vacío.',
+
+            'expiration_date.required' => 'El selector de "Fecha de vencimiento" no puede estar vacío.',
+
+            'stock.required' => 'El campo "Stock" no puede estar vacío.',
+
+            'stock_threshold.required' => 'El campo "Umbral de stock" no puede estar vacío.',
+
+            'expiration_threshold.required' => 'El campo "Umbral de expiración" no puede estar vacío.'
         ];
     }
 }

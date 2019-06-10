@@ -11,9 +11,21 @@
         </div>
 
     @endif
-    @foreach ($errors->all() as $message)
-    {{ $message }}
-@endforeach
+
+    @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach ($errors->all() as $message)
+                <li>
+                    <strong>
+                        {{ $message }}
+                    </strong>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url('sale/register') }}">
             @csrf
@@ -33,7 +45,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-md-3 form-control-label">Clientes (*)</label>
+                <label class="col-md-3 form-control-label">Cliente (*)</label>
                 <div class="col-md-6">
                     <select class="form-control" name="id_client">
                         <option disabled value="0">Seleccione un cliente</option>
@@ -49,7 +61,7 @@
             <div class="form-group row">
                 <label class="col-md-3 form-control-label">Cantidad (*)</label>
                 <div class="col-md-6">
-                    <input type="number" placeholder="Ingrese la cantidad" name="quantity">
+                    <input type="number" placeholder="Ingrese la cantidad" name="quantity" min="1" pattern="^[0-9]+">
                     <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>
@@ -62,9 +74,9 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-md-3 form-control-label">Descuento (*)</label>
+                <label class="col-md-3 form-control-label">Descuento(%) (*)</label>
                 <div class="col-md-6">
-                    <input type="number" placeholder="Ingrese el descuento a aplicar" name="discount">
+                    <input type="number" placeholder="Ingrese el descuento a aplicar" name="discount" min="1" pattern="^[0-9]+">
                     <i class="fa fa-percent"></i>
                 </div>
             </div>            

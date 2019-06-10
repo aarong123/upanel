@@ -58,8 +58,6 @@
                 <div class="card-header border-success" style="text-align: center">
                     <h5><b>Análisis de productos</b></h5>
                 </div>
-                <div class="car-body border-success">
-                </div>
             </div>
             <div class="card bg-warning border-success">
                     <div class="card-header border-success">

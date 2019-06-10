@@ -11,17 +11,19 @@
         </div>
     @endif
    
+    @if ($errors->any())
     <div class="alert alert-danger" role="alert">
-            <ul>
-                @foreach ($errors->all() as $message)
-                    <li>
-                        <strong>
-                            {{ $message }}
-                        </strong>
-                    </li>
-                @endforeach
-            </ul>
+        <ul>
+            @foreach ($errors->all() as $message)
+                <li>
+                    <strong>
+                        {{ $message }}
+                    </strong>
+                </li>
+            @endforeach
+        </ul>
     </div>
+    @endif
     
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url("provider/update/$provider->id") }}">
@@ -49,7 +51,7 @@
                 <div class="form-group col-md-6">
                     <label for="num_doc">Número de documento de identidad:</label>
                     <input type="number" placeholder="Ingrese el nro. de documento" name="num_doc"
-                           value="{{ $provider->person->num_doc }}">
+                           value="{{ $provider->person->num_doc }}" min="1" pattern="^[0-9]+">
                     <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>
@@ -64,7 +66,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="contact">Correo electrónico de contacto:</label>
-                    <input type="text" placeholder="Ingrese el correo electrónico de contacto" name="contact"
+                    <input type="email" placeholder="Ingrese el correo electrónico de contacto" name="contact"
                            value="{{ $provider->contact }}">
                     <i class="fa fa-at"></i>
                 </div>
@@ -73,7 +75,7 @@
                 <div class="form-group col-md-6">
                     <label for="telephone_contact">Número telefónico de contacto:</label>
                     <input type="number" placeholder="Ingrese el nro. telefónico de contacto" name="telephone_contact"
-                           value="{{ $provider->telephone_contact }}">
+                           value="{{ $provider->telephone_contact }}" min="1" pattern="^[0-9]+">
                     <i class="fa fa-phone"></i>
                 </div>
             </div>

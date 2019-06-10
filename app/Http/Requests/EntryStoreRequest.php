@@ -24,22 +24,20 @@ class EntryStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_entry' => 'not_in:0',
-            'id_item' => 'not_in:0',
-            'price' => 'required',
-            'quantity' => 'required'
-
+            'item_id' => 'not_in:0',
+            'provider_id' => 'not_in:0',
+            'quantity' => 'required',
+            'price' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'id_entry.required' => 'El campo de "Productos" no puede estar vacío.',
-            'id_item.required' => 'El campo de "Proveedores" no puede estar vacío.',
-            'price.required' => 'El campo "Precio" no puede estar vacío.',
-            'quantity.required' => 'El campo "Cantidad" no puede estar vacío.'
-
+            'item_id.required' => 'El selector de "Producto" no puede estar vacío.',
+            'provider_id.required' => 'El selector de "Proveedor" no puede estar vacío.',
+            'quantity.required' => 'El campo "Cantidad" no puede estar vacío.',
+            'price.required' => 'El campo "Precio" no puede estar vacío.'
         ];
     }
 }

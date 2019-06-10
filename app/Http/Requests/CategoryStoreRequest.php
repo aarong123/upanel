@@ -25,7 +25,7 @@ class CategoryStoreRequest extends FormRequest
     {
 
         return [
-            'name' => 'required|min:6|unique:categories|max:200'
+            'name' => 'required|min:6|unique:categories|max:30'
 
         ];
     }
@@ -34,10 +34,10 @@ class CategoryStoreRequest extends FormRequest
     {
         return [
 
-            'name.required' => 'El campo nombre no puede ser vacio',
-            'name.min' => 'El campo nombre minimo debe tener 6 caracteres',
-            'name.unique' => 'El nombre debe ser unico',
-            'name.max' => 'El campo nombre maximo pueden tener 200 caracteres',
+            'name.required' => 'El campo "Nombre" no puede estar vacío.',
+            'name.min' => 'El campo "Nombre" debe ser de mínimo 6 letras.',
+            'name.unique' => 'El nombre debe ser único.',
+            'name.max' => 'El campo "Nombre" debe ser de máximo 30 letras.'
         ];
     }
 }

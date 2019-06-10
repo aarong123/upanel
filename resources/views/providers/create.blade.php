@@ -11,17 +11,19 @@
         </div>
     @endif
 
+    @if ($errors->any())
     <div class="alert alert-danger" role="alert">
-            <ul>
-                @foreach ($errors->all() as $message)
-                    <li>
-                        <strong>
-                            {{ $message }}
-                        </strong>
-                    </li>
-                @endforeach
-            </ul>
+        <ul>
+            @foreach ($errors->all() as $message)
+                <li>
+                    <strong>
+                        {{ $message }}
+                    </strong>
+                </li>
+            @endforeach
+        </ul>
     </div>
+    @endif
     
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url('provider/register') }}">
@@ -46,7 +48,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="num_doc">Número de documento de identidad:</label>
-                    <input type="number" placeholder="Ingrese el nro. de documento" name="num_doc">
+                    <input type="number" placeholder="Ingrese el nro. de documento" name="num_doc" min="1" pattern="^[0-9]+">
                     <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>
@@ -68,7 +70,7 @@
             <div class="form-group row">
                 <div class="form-group col-md-6">
                     <label for="telephone">Número telefónico de contacto:</label>
-                    <input type="number" placeholder="Ingrese el nro. telefónico de contacto" name="telephone_contact">
+                    <input type="number" placeholder="Ingrese el nro. telefónico de contacto" name="telephone_contact" min="1" pattern="^[0-9]+">
                     <i class="fa fa-phone"></i>
                 </div>
             </div>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Upanel\Person;
 use Upanel\Role;
 use Upanel\User;
+use Upanel\Http\Requests\UserStoreRequest;
+use Upanel\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {

@@ -11,9 +11,21 @@
         </div>
 
     @endif
-    @foreach ($errors->all() as $message)
-    {{ $message }}
-@endforeach
+
+    @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach ($errors->all() as $message)
+                <li>
+                    <strong>
+                        {{ $message }}
+                    </strong>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     <div class="wrapper">
             <form class="formulario1" method="post" action="{{ url('user/update/' . $user->id) }}">
                 @csrf
@@ -41,7 +53,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="telephone">Número telefónico:</label>
-                        <input type="number" placeholder="Ingrese su nro. telefónico" name="telephone" value="{{ $user->person->telephone }}">
+                        <input type="number" placeholder="Ingrese su nro. telefónico" name="telephone" value="{{ $user->person->telephone }}" min="1" pattern="^[0-9]+">
                         <i class="fa fa-phone"></i>
                     </div>
                 </div>
@@ -57,7 +69,7 @@
                     </div>
                     <div class="form-group col-md-6">
                             <label for="num_doc">Número de documento de identidad:</label>
-                            <input type="number" placeholder="Ingrese su nro. de documento" name="num_doc" value="{{ $user->person->num_doc }}">
+                            <input type="number" placeholder="Ingrese su nro. de documento" name="num_doc" value="{{ $user->person->num_doc }}" min="1" pattern="^[0-9]+">
                             <i class="fa fa-sort-numeric-up"></i>
                     </div>
                 </div>
