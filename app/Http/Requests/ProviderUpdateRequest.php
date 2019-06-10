@@ -34,30 +34,29 @@ class ProviderUpdateRequest extends FormRequest
             'telephone_contact' => 'required|min:7|max:10'
         ];
     }
-        public function messages()
-        {
-            return [
-                'name.required' => 'El campo "Nombre" no puede estar vacío.',
-                'name.min' => 'El campo "Nombre" debe ser de mínimo 4 letras.',
-                'name.max' => 'El campo "Nombre" debe ser de máximo 20 letras.',
-    
-                'type_doc.not_in' => 'El selector de "Tipo de documento" no puede estar vacío.',
-     
-                'num_doc.required' => 'El campo "Número de documento de identidad" no puede estar vacío.',
-                'num_doc.min' => 'El campo "Número de documento de identidad" debe ser de 8 dígitos.',
-                'num_doc.max' => 'El campo "Número de documento de identidad" debe ser de 10 dígitos.',
-    
-                'address.required' => 'El campo "Dirección de contacto" no puede estar vacío.',
-                'address.min' => 'El campo "Dirección de contacto" debe ser de mínimo 8 caracteres.',
-                'address.max' => 'El campo "Dirección de contacto" debe ser de máximo 50 caracteres.',
-    
-                'contact.required' => 'El campo "Correo electrónico de contacto" no puede estar vacío.',
-                'contact.email' => 'Ingrese una dirección de correo electrónico correcta.',
-    
-                'telephone_contact.required' => 'El campo "Número telefónico de contacto" no puede estar vacío.',
-                'telephone_contact.min' => 'El campo "Número telefónico de contacto" debe ser de mínimo 7 dígitos.',
-                'telephone_contact.max' => 'El campo "Número telefónico de contacto" debe ser de máximo 10 dígitos.'
-            ];
-        }
+    public function messages()
+    {
+        return [
+            'name.required' => 'El campo "Nombre" no puede estar vacío.',
+            'name.min' => 'El campo "Nombre" debe ser de mínimo 4 letras.',
+            'name.max' => 'El campo "Nombre" debe ser de máximo 20 letras.',
+
+            'type_doc.not_in' => 'El selector de "Tipo de documento" no puede estar vacío.',
+
+            'num_doc.required' => 'El campo "Número de documento de identidad" no puede estar vacío.',
+            'num_doc.min' => 'El campo "Número de documento de identidad" debe ser de 8 dígitos.',
+            'num_doc.max' => 'El campo "Número de documento de identidad" debe ser de 10 dígitos.',
+
+            'address.required' => 'El campo "Dirección de contacto" no puede estar vacío.',
+            'address.min' => 'El campo "Dirección de contacto" debe ser de mínimo 8 caracteres.',
+            'address.max' => 'El campo "Dirección de contacto" debe ser de máximo 50 caracteres.',
+
+            'contact.required' => 'El campo "Correo electrónico de contacto" no puede estar vacío.',
+            'contact.email' => 'Ingrese una dirección de correo electrónico correcta.',
+
+            'telephone_contact.required' => 'El campo "Número telefónico de contacto" no puede estar vacío.',
+            'telephone_contact.min' => 'El campo "Número telefónico de contacto" debe ser de mínimo 7 dígitos.',
+            'telephone_contact.max' => 'El campo "Número telefónico de contacto" debe ser de máximo 10 dígitos.'
+        ];
     }
 }

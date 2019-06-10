@@ -34,15 +34,13 @@ class EntryController extends Controller
         $quantity = $request->quantity;
         $price = $request->price;
         $subTotal = $quantity * $price;
-        $tax = $subTotal * 0.19;
+        $iva = $subTotal * 0.19;
+        $total = $subTotal + $iva;
         $entry = Entry::create([
             'provider_id' => $request->provider_id,
             'user_id' => Auth::id(),
-            'type_voucher' => 1,
-            'series_voucher' => 1,
-            'num_voucher' => 1,
-            'tax' => 0,
-            'total' => $subTotal,
+            'tax' => $iva,
+            'total' => $total,
             'state' => 'Activa',
         ]);
 

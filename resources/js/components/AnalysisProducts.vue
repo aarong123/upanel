@@ -5,7 +5,7 @@
                 <p style= "font-size:16px;">
                     <i class="fas fa-exclamation-triangle"></i>
 
-                    El producto <strong>{{ itemsNotificationStock.name }}</strong>  tiene poco stock: <strong>{{ itemsNotificationStock.stock }}</strong> y tiene un umbral de alerta de {{ itemsNotificationStock.stock_threshold }}
+                    El producto <strong>{{ itemsNotificationStock.name }}</strong>  tiene poco stock: <strong>{{ itemsNotificationStock.stock }}</strong> y tiene un umbral de stock de {{ itemsNotificationStock.stock_threshold }}
                     <i class="fas fa-exclamation-triangle"></i>
                 </p>
 <!--
@@ -19,7 +19,7 @@
                 <p style= "font-size:16px;">
                     <i class="fas fa-exclamation-triangle"></i>
 
-                    El producto <strong>{{ itemsNotificationExpirationDate.name }}</strong>  est&aacute; a punto de vencer: <strong>{{ itemsNotificationExpirationDate.expiration_date }}</strong> y tiene un umbral de alerta de {{ itemsNotificationExpirationDate.expiration_threshold }}
+                    El producto <strong>{{ itemsNotificationExpirationDate.name }}</strong>  est&aacute; a punto de vencer: <strong>{{ itemsNotificationExpirationDate.expiration_date }}</strong> y tiene un umbral de expiración de {{ itemsNotificationExpirationDate.expiration_threshold }}
                     <i class="fas fa-exclamation-triangle"></i>
                 </p>
 <!--

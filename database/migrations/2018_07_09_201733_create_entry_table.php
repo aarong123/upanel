@@ -19,10 +19,7 @@ class CreateEntryTable extends Migration
             $table->unsignedInteger('user_id');
             $table->foreign('provider_id')->references('id')->on('providers');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('type_voucher', 20);
-            $table->string('series_voucher', 7)->nullable();
-            $table->string('num_voucher', 10);
-            $table->decimal('tax', 4, 2);
+            $table->decimal('tax', 11, 2);
             $table->decimal('total', 11, 2);
             $table->string('state', 20);
             $table->timestamps();

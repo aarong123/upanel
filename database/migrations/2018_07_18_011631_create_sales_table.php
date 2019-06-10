@@ -19,9 +19,6 @@ class CreateSalesTable extends Migration
             $table->foreign('id_client')->references('id')->on('persons');
             $table->unsignedInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->string('type_voucher', 20);
-            $table->string('series_voucher', 7)->nullable();
-            $table->string('num_voucher', 10);
             $table->decimal('tax', 11, 2);
             $table->decimal('total', 11, 2);
             $table->string('state', 20);

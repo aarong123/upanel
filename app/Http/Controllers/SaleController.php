@@ -41,13 +41,9 @@ class SaleController extends Controller
         $subdiscount = $subTotal*($discount/100);
         $desTotal=$subTotal-$subdiscount;
         
-
         $sale = Sale::create([
             'id_client' => $request->id_client,
             'id_user' => Auth::id(),
-            'type_voucher' => 1,            
-            'series_voucher' => 1,            
-            'num_voucher' => 1,
             'tax' => $iva,
             'total' => $desTotal,
             'state' => "Activa",

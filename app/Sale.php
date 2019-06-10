@@ -10,13 +10,9 @@ class Sale extends Model
     protected $fillable = [
         "id_client",
         "id_user",
-        "type_voucher",
-        "series_voucher",
-        "num_voucher",
         "tax",
         "total",
         "state"
-
     ];
 
     public function user()

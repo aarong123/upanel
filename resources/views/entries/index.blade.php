@@ -26,11 +26,8 @@
                         <th scope="col">Estado</th>
                         <th scope="col">Proveedor</th>
                         <th scope="col">Usuario</th>
-                        <th scope="col">Tipo de comprobante</th>
-                        <th scope="col">Serie de comprobante</th>
-                        <th scope="col">Número de comprobante</th>
-                        <th scope="col">Impuesto</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">IVA(19%)</th>
+                        <th scope="col">Total con IVA incluido</th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -41,9 +38,6 @@
                             <td>{{ $entry->state }}</td>
                             <td>{{ $entry->provider->person->name }}</td>
                             <td>{{ $entry->user->user }}</td>
-                            <td>{{ $entry->type_voucher }}</td>
-                            <td>{{ $entry->series_voucher }}</td>
-                            <td>{{ $entry->num_voucher }}</td>
                             <td>{{ $entry->tax }}</td>
                             <td>{{ $entry->total }}</td>
                             

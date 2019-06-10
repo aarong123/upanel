@@ -9,9 +9,6 @@ class Entry extends Model
     protected $fillable = [
         'provider_id',
         'user_id',
-        'type_voucher',
-        'num_voucher',
-        'series_voucher',
         'tax',
         'total',
         'state',

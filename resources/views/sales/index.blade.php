@@ -18,7 +18,7 @@
             <div class="card-header">
                 Listado de ventas
             </div>
-            <div class="card-body" style="width:1070px;">
+            <div class="card-body">
                 <table class="table table-hover table-dark mt-5 table-responsive" id="table">
                     <thead>
                     <tr>
@@ -26,11 +26,8 @@
                         <th scope="col">Estado</th>
                         <th scope="col">Cliente</th>
                         <th scope="col">Usuario</th>
-                        <th scope="col">Tipo de comprobante</th>
-                        <th scope="col">Serie de comprobante</th>
-                        <th scope="col">Número de comprobante</th>
-                        <th scope="col">Impuesto</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">IVA(19%)</th>
+                        <th scope="col">Total con descuento(%)</th>
                         <th scope="col">Opciones</th>
                     </tr>
                     </thead>
@@ -42,9 +39,6 @@
                             <td>{{ $sale->state }}</td>
                             <td>{{ ($sale->person) ? $sale->person->name : "Desactivado" }}</td>
                             <td>{{ $sale->user->user }}</td>
-                            <td>{{ $sale->type_voucher }}</td>
-                            <td>{{ $sale->series_voucher }}</td>
-                            <td>{{ $sale->num_voucher }}</td>
                             <td>{{ $sale->tax }}</td>
                             <td>{{ $sale->total }}</td>
                             <td>

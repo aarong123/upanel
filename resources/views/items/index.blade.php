@@ -32,7 +32,6 @@
                         <th scope="col">Stock</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Fecha de expiración</th>
-                        <th scope="col">Umbral de ventas</th>
                         <th scope="col">Umbral de stock</th>
                         <th scope="col">Umbral de expiración</th>
                         <th scope="col">Opciones</th>
@@ -49,7 +48,6 @@
                             <td>{{ $item->stock }}</td>
                             <td>{{ $item->description }}</td>
                             <td>{{ $item->expiration_date }}</td>
-                            <td>{{ $item->sales_threshold }}</td>
                             <td>{{ $item->stock_threshold }}</td>
                             <td>{{ $item->expiration_threshold }}</td>
                             <td>

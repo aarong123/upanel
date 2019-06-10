@@ -62,7 +62,7 @@
                     <label for="type_doc">Tipo de documento:</label>
                     <select id="type_doc" class="form-control" name="type_doc">
                         <option value="0" selected>Seleccione...</option>
-                        <option value="cc">Cédula de ciudadanía</option>
+                        <option value="CC">Cédula de ciudadanía</option>
                         <option value="CE">Cédula de extranjería</option>
                     </select>
                 </div>
