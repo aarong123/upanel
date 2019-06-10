@@ -24,29 +24,55 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:2|max:200',
-            'lastname' => 'required|min:2|max:200',
+            'name' => 'required|min:4|max:20',
+            'lastname' => 'required|min:4|max:30',
+            'address' => 'required|min:8|max:50',
+            'telephone' => 'required|min:7|max:10',
+            'type_doc' => 'not_in:0',
+            'num_doc' => 'required|min:8|max:12',
             'email' => 'required|email',
-            'role_id' => 'not_in:0',
             'user' => 'required|unique:users',
-            'password' => 'required',
-
+            'password' => 'required|min:8|max:16',
+            'role_id' => 'not_in:0'
         ];
     }
     public function messages()
     {
         return [
-            'role_id.required' => 'El selector de roles no puede estar vacio',
-            'name.required' => 'El campo nombre no puede estar vacio',
-            'name.min' => 'El campo nombre minimo debe tener 6 caracteres',
-            'name.max' => 'El campo nombre maximo puede tener 200 caracteres',
-            'lastname.required' => 'El campo apellido no puede estar vacio',
-            'lastname.min' => 'El campo apellido minimo debe tener 6 caracteres',
-            'lastname.max' => 'El campo apellido maximo puede tener 200 caracteres',
-            'email.required' => 'El campo email no puede estar vacio',
-            'User.unique' => 'El campo usuario debe ser unico',
-            'User.required' => 'El campo usuario no puede estar vacio',
-            'User.required' => 'El campo contraseña no puede estar vacio',
+
+            'name.required' => 'El campo "Nombre(s)" no puede estar vacío.',
+            'name.min' => 'El campo "Nombre(s)" debe ser de mínimo 4 letras.',
+            'name.max' => 'El campo "Nombre(s)" debe ser de máximo 20 letras.',
+
+            'lastname.required' => 'El campo "Apellido(s)" no puede estar vacío.',
+            'lastname.min' => 'El campo "Apellido(s)" debe ser de mínimo 4 letras.',
+            'lastname.max' => 'El campo "Apellido(s)" debe ser de máximo 30 letras.',
+
+            'address.required' => 'El campo "Dirección de residencia" no puede estar vacío.',
+            'address.min' => 'El campo "Dirección de residencia" debe ser de mínimo 8 caracteres.',
+            'address.max' => 'El campo "Dirección de residencia" debe ser de máximo 50 caracteres.',
+
+            'telephone.required' => 'El campo "Número telefónico" no puede estar vacío.',
+            'telephone.min' => 'El campo "Número telefónico" debe ser de mínimo 7 dígitos.',
+            'telephone.max' => 'El campo "Número telefónico" debe ser de máximo 10 dígitos.',
+
+            'type_doc.not_in' => 'El selector de "Tipo de documento" no puede estar vacío.',
+
+            'num_doc.required' => 'El campo "Número de documento de identidad" no puede estar vacío.',
+            'num_doc.min' => 'El campo "Número de documento de identidad" debe ser de mínimo 8 dígitos.',
+            'num_doc.max' => 'El campo "Número de documento de identidad" debe ser de máximo 12 dígitos.',
+
+            'email.required' => 'El campo "Correo electrónico" no puede estar vacío.',
+            'email.required' => 'Ingrese una dirección de correo electrónico correcta.',
+
+            'user.unique' => 'El campo "Nombre de usuario" debe ser único.',
+            'user.required' => 'El campo "Nombre de usuario" no puede estar vacío.',
+
+            'password.required' => 'El campo "Contraseña" no puede estar vacío.',
+            'password.min' => 'El campo "Contraseña" debe ser de mínimo 8 caracteres, letras o números.', 
+            'password.max' => 'El campo "Contraseña" debe ser de máximo 16 caracteres, letras o números.', 
+
+            'role_id.required' => 'El selector de "Rol" no puede estar vacío.'
         ];
     }
 }

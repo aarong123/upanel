@@ -18,7 +18,7 @@ class Administrador
     public function handle($request, Closure $next)
     {
         if (Auth::user()->role_id !== 1) {
-            return redirect()->back()->with('unauthorized', "Opción solo accesible por un administrador");
+            return redirect()->back()->with('unauthorized', "Sólo un administrador puede acceder a esta vista");
         }
 
         return $next($request);

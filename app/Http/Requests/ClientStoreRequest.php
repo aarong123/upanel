@@ -27,7 +27,7 @@ class ClientStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|min:4|max:20',
-            'lastname' => 'required|min:4|max:20',
+            'lastname' => 'required|min:4|max:30',
             'type_doc' => 'not_in:0',
             'num_doc' => 'required|min:8|max:12',
             'address' => 'required|min:8|max:50',
@@ -38,16 +38,16 @@ class ClientStoreRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'El campo "Nombre" no puede estar vacío.',
-            'name.min' => 'El campo "Nombre" debe ser de mínimo 6 letras.',
-            'name.max' => 'El campo "Nombre" debe ser de máximo 20 letras.',
-                  
-            'lastname.required' => 'El campo "Apellido" no puede estar vacío.',
-            'lastname.min' => 'El campo "Apellido" debe ser de mínimo 6 letras.',
-            'lastname.max' => 'El campo "Apellido" debe ser de máximo 20 letras.',
+            'name.required' => 'El campo "Nombre(s)" no puede estar vacío.',
+            'name.min' => 'El campo "Nombre(s)" debe ser de mínimo 4 letras.',
+            'name.max' => 'El campo "Nombre(s)" debe ser de máximo 20 letras.',
 
-            'type_doc.not_in' => 'El campo "Tipo de documento" no puede estar vacío.',
- 
+            'lastname.required' => 'El campo "Apellido(s)" no puede estar vacío.',
+            'lastname.min' => 'El campo "Apellido(s)" debe ser de mínimo 4 letras.',
+            'lastname.max' => 'El campo "Apellido(s)" debe ser de máximo 30 letras.',
+
+            'type_doc.not_in' => 'El selector de "Tipo de documento" no puede estar vacío.',
+
             'num_doc.required' => 'El campo "Número de documento de identidad" no puede estar vacío.',
             'num_doc.min' => 'El campo "Número de documento de identidad" debe ser de mínimo 8 dígitos.',
             'num_doc.max' => 'El campo "Número de documento de identidad" debe ser de máximo 12 dígitos.',
@@ -61,8 +61,8 @@ class ClientStoreRequest extends FormRequest
             'telephone.max' => 'El campo "Número telefónico" debe ser de máximo 10 dígitos.',
 
             'email.required' => 'El campo "Correo electrónico" no puede estar vacío.',
-            'email.required' => 'Ingrese un dirección de correo electrónico correcta.'
-            
+            'email.required' => 'Ingrese una dirección de correo electrónico correcta.'
+
         ];
-}
+    }
 }

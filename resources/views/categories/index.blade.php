@@ -12,17 +12,19 @@
 
     @endif
 
+    @if ($errors->any())
     <div class="alert alert-danger" role="alert">
-            <ul>
-                @foreach ($errors->all() as $message)
-                    <li>
-                        <strong>
-                            {{ $message }}
-                        </strong>
-                    </li>
-                @endforeach
-            </ul>
+        <ul>
+            @foreach ($errors->all() as $message)
+                <li>
+                    <strong>
+                        {{ $message }}
+                    </strong>
+                </li>
+            @endforeach
+        </ul>
     </div>
+    @endif
 
     <div class="wrapper">
         <form class="formulario" method="post" action="{{ url('category/register') }}">

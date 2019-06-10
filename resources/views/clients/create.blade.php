@@ -11,6 +11,7 @@
         </div>
     @endif
 
+    @if ($errors->any())
     <div class="alert alert-danger" role="alert">
         <ul>
             @foreach ($errors->all() as $message)
@@ -22,6 +23,7 @@
             @endforeach
         </ul>
     </div>
+    @endif
 
 
     <div class="wrapper">
@@ -50,7 +52,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="telephone">Número telefónico:</label>
-                    <input type="number" placeholder="Ingrese su nro. telefónico" name="telephone">
+                    <input type="number" placeholder="Ingrese su nro. telefónico" name="telephone" min="1" pattern="^[0-9]+">
                     <i class="fa fa-phone"></i>
                 </div>
             </div>
@@ -66,7 +68,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="num_doc">Número de documento de identidad:</label>
-                    <input type="number" placeholder="Ingrese su nro. de documento" name="num_doc">
+                    <input type="number" placeholder="Ingrese su nro. de documento" name="num_doc" min="1" pattern="^[0-9]+">
                     <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>

@@ -83,14 +83,20 @@
 
                 <div class="alert alert-warning" role="alert">
                     <strong>
-                        {{ session()->get('unauthorized') }}
+                        <i class="fas fa-exclamation-triangle"></i> {{ session()->get('unauthorized') }} <i class="fas fa-exclamation-triangle"></i>
                     </strong>
                 </div>
 
             @endif
-            <div class="links">
-                @include('partialMenu')
+            <div class="card border-warning">
+                    <div class="card-header border-warning bg-warning" style="height:48px">
+                     <p style="font-size: 18px;">Menú principal</p>   
+                    </div>
+                    <div class="card-body border-warning bg-info"  style="font-size:16px;">
+                        @include('partialMenu')
+                    </div>
             </div>
+ 
         </div>
     </div>
 

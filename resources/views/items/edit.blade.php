@@ -11,9 +11,21 @@
         </div>
 
     @endif
-    @foreach ($errors->all() as $message)
-    {{ $message }}
-@endforeach
+
+    @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach ($errors->all() as $message)
+                <li>
+                    <strong>
+                        {{ $message }}
+                    </strong>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     <div class="wrapper">
         <form class="formulario1" method="post" action="{{ url('item/update/' . $item->id) }}">
             @csrf
@@ -36,7 +48,7 @@
             <div class="form-group row">
                 <label class="col-md-3 form-control-label">Código (*)</label>
                 <div class="col-md-9">
-                    <input placeholder="Código de barras" type="text" name="code" value="{{ $item->code }}">
+                    <input placeholder="Código de barras" type="text" name="code" value="{{ $item->code }}" min="1" pattern="^[0-9]+">
                     <i class="fa fa-barcode"></i>
                 </div>
             </div>
@@ -51,7 +63,7 @@
                 <label class="col-md-3 form-control-label">Precio Venta (*)</label>
                 <div class="col-md-9">
                     <input placeholder="Precio del producto" name="price_sale" type="number"
-                           value="{{ $item->price_sale }}">
+                           value="{{ $item->price_sale }}" min="1" pattern="^[0-9]+">
                     <i class="fa fa-dollar-sign"></i>
                 </div>
             </div>
@@ -67,7 +79,7 @@
                 <label class="col-md-3 form-control-label">Stock (*)</label>
                 <div class="col-md-9">
                     <input class="form-control" placeholder="Ingrese el stock inicial del producto" type="number"
-                           name="stock" value="{{ $item->stock }}">
+                           name="stock" value="{{ $item->stock }}" min="1" pattern="^[0-9]+">
                     <i class="fa fa-sort-numeric-up"></i>
                 </div>
             </div>
@@ -75,7 +87,7 @@
                 <label class="col-md-3 form-control-label">Umbral de stock (*)</label>
                 <div class="col-md-9">
                     <input class="form-control" placeholder="Ingrese el umbral del stock" type="number"
-                           name="stock_threshold" value="{{ $item->stock_threshold }}">
+                           name="stock_threshold" value="{{ $item->stock_threshold }}" min="1" pattern="^[0-9]+">
                     <i class="fa fa-sort-amount-up"></i>
                 </div>
             </div>
@@ -83,7 +95,7 @@
                 <label class="col-md-3 form-control-label">Umbral de expiración (*)</label>
                 <div class="col-md-9">
                     <input class="form-control" placeholder="Ingrese el umbral de vencimiento" type="number"
-                           name="expiration_threshold" value="{{ $item->expiration_threshold }}">
+                           name="expiration_threshold" value="{{ $item->expiration_threshold }}" min="1" pattern="^[0-9]+">
                     <i class="fa fa-clock"></i>
                 </div>
             </div>

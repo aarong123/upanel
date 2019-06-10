@@ -20,6 +20,6 @@ class Almacenero
         if (Auth::user()->role_id === 1 || Auth::user()->role_id === 3) {
             return $next($request);
         }
-        return redirect()->back()->with('unauthorized', "Solo accesible por un almacenero o administrador directamente.");
+        return redirect()->back()->with('unauthorized', "Sólo un administrador o un almacenero puede acceder a esta vista");
     }
 }
