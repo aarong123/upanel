@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.8.2",
-        "axios": "^0.18",
+        "axios": "^0.21",
         "bootstrap": "^4.1.0",
         "bootswatch": "^4.3.1",
         "chart.js": "^2.7.3",
